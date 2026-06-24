@@ -32,7 +32,11 @@
 }
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}
-  .nav-cta .btn-ghost{display:none}
+  /* nav-cta collapses to just the burger here: the hero already shows its
+     own prominent "Browse Inventory" CTA right below, so keeping nav's
+     near-identical "View Inventory" button visible at the same time reads
+     as a duplicated button rather than a deliberate second action */
+  .nav-cta .btn-ghost,.nav-cta .btn-primary{display:none}
   .about-grid,.finance-grid,.detail-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
   .about-media{aspect-ratio:16/10}
   .section{padding:78px 0}

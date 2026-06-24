@@ -154,8 +154,9 @@ a{color:inherit;text-decoration:none}
   /* top padding reserves space for the fixed nav: once stacked content on
      narrow screens exceeds 100vh, align-content:center has no spare room
      left to push content below the header, so this floor is load-bearing,
-     not cosmetic */
-  padding:clamp(110px,18vh,150px) clamp(24px,6vw,72px) clamp(56px,9vh,96px)}
+     not cosmetic. Generous on purpose -- too much top-gap is invisible,
+     too little re-creates the overlap bug. */
+  padding:max(140px,20vh) clamp(24px,6vw,72px) max(72px,10vh)}
 .hero-tag{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;color:var(--h-text);
   background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.35);padding:8px 15px;border-radius:99px;
   backdrop-filter:blur(8px);margin-bottom:26px;letter-spacing:.02em;

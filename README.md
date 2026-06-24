@@ -36,3 +36,7 @@ Marketing site for Supreme Auto, a premium vehicle dealership in Pretoria North.
 1. Push this repository to GitHub.
 2. In **Settings → Pages**, set the source to the `main` branch, root folder.
 3. The site will be served from `index.html` with relative paths to `css/` and `js/` — no build step required.
+
+### Cache-busting
+
+CSS/JS files are linked with a `?v=N` query string (e.g. `css/style.css?v=4`). GitHub Pages' CDN caches assets for 10 minutes, and some in-app browsers (WhatsApp, Instagram, etc.) cache far longer and independently of normal browser cache settings. **Bump the `v` number on every CSS/JS edit** so visitors always get the latest file instead of a stale cached copy.
