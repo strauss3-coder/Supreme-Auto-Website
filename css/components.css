@@ -60,17 +60,18 @@
 .partner-card:hover,.partner-card:focus-visible{transform:translateY(-6px);border-color:var(--border-2);
   background:var(--surface-2);box-shadow:var(--shadow)}
 .partner-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* each card sets --brand/--brand-soft inline to that bank's real
+   colour, so the glow, icon tint and hover ring all use one source */
 .partner-glow{position:absolute;top:-32%;left:50%;transform:translateX(-50%);width:160px;height:160px;
-  border-radius:50%;filter:blur(34px);opacity:.32;pointer-events:none;transition:opacity .4s var(--ease)}
+  border-radius:50%;background:var(--brand,var(--gold));filter:blur(34px);opacity:.32;
+  pointer-events:none;transition:opacity .4s var(--ease)}
 .partner-card:hover .partner-glow{opacity:.55}
-.partner-glow--gold{background:var(--gold)}
-.partner-glow--green{background:var(--green)}
-.partner-glow--red{background:var(--red)}
 .partner-ic{position:relative;width:56px;height:56px;margin:0 auto 18px;border-radius:14px;
-  display:grid;place-items:center;background:rgba(255,255,255,.04);border:1px solid var(--border-2);
-  transition:transform .4s var(--ease)}
-.partner-card:hover .partner-ic{transform:scale(1.07) rotate(-4deg)}
-.partner-ic svg{width:26px;height:26px;color:var(--text)}
+  display:grid;place-items:center;background:rgba(255,255,255,.06);
+  border:1px solid var(--brand-soft,var(--border-2));transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.partner-card:hover .partner-ic{transform:scale(1.07) rotate(-4deg);
+  box-shadow:0 0 22px -4px var(--brand-soft,var(--gold-soft))}
+.partner-ic svg{width:26px;height:26px;color:var(--brand,var(--text))}
 .partner-card h3{position:relative;font-size:17px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
 .partner-card p{position:relative;color:var(--muted);font-size:13.5px}
 
