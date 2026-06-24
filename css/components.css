@@ -19,12 +19,15 @@
 .stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:26px 22px;
   backdrop-filter:blur(8px);transition:.4s var(--ease);position:relative;overflow:hidden}
 .stat::before{content:"";position:absolute;top:0;left:0;width:0;height:2px;
-  background:linear-gradient(90deg,var(--gold),transparent);transition:width .5s var(--ease)}
+  background:linear-gradient(90deg,var(--green),transparent);transition:width .5s var(--ease)}
 .stat:hover{border-color:var(--border-2);transform:translateY(-4px)}
 .stat:hover::before{width:100%}
 .stat b{font-family:var(--display);font-size:38px;font-weight:600;letter-spacing:-.02em;display:block}
-.stat b i{color:var(--gold);font-style:normal}
+.stat b i{color:var(--green);font-style:normal;text-shadow:0 0 16px var(--green-soft);
+  transition:text-shadow .4s var(--ease)}
+.stat:hover b i{text-shadow:0 0 24px var(--green-soft)}
 .stat small{color:var(--muted);font-size:13.5px;letter-spacing:.02em;margin-top:6px;display:block}
+.stat .stat-sub{color:var(--faint);font-size:11px;letter-spacing:.04em;margin-top:2px;display:block}
 
 /* =========================================================
    SERVICES
