@@ -50,17 +50,29 @@
 .svc p{color:var(--muted);font-size:14.5px}
 
 /* =========================================================
-   WHY CHOOSE — feature grid
+   FINANCING PARTNERS
    ========================================================= */
 .why{background:linear-gradient(180deg,var(--bg),var(--bg-3),var(--bg))}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--border);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
-.why-cell{background:var(--bg);padding:36px 30px;transition:.4s var(--ease)}
-.why-cell:hover{background:var(--bg-2)}
-.why-cell .n{font-family:var(--display);font-size:13px;color:var(--gold);letter-spacing:.1em}
-.why-cell h3{font-size:19px;font-weight:600;margin:16px 0 9px;display:flex;align-items:center;gap:11px}
-.why-cell h3 svg{width:20px;height:20px;color:var(--gold)}
-.why-cell p{color:var(--muted);font-size:14.5px}
+.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.partner-card{position:relative;background:var(--surface);border:1px solid var(--border);
+  border-radius:20px;padding:34px 26px;text-align:center;overflow:hidden;backdrop-filter:blur(8px);
+  transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);cursor:default}
+.partner-card:hover,.partner-card:focus-visible{transform:translateY(-6px);border-color:var(--border-2);
+  background:var(--surface-2);box-shadow:var(--shadow)}
+.partner-card:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.partner-glow{position:absolute;top:-32%;left:50%;transform:translateX(-50%);width:160px;height:160px;
+  border-radius:50%;filter:blur(34px);opacity:.32;pointer-events:none;transition:opacity .4s var(--ease)}
+.partner-card:hover .partner-glow{opacity:.55}
+.partner-glow--gold{background:var(--gold)}
+.partner-glow--green{background:var(--green)}
+.partner-glow--red{background:var(--red)}
+.partner-ic{position:relative;width:56px;height:56px;margin:0 auto 18px;border-radius:14px;
+  display:grid;place-items:center;background:rgba(255,255,255,.04);border:1px solid var(--border-2);
+  transition:transform .4s var(--ease)}
+.partner-card:hover .partner-ic{transform:scale(1.07) rotate(-4deg)}
+.partner-ic svg{width:26px;height:26px;color:var(--text)}
+.partner-card h3{position:relative;font-size:17px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
+.partner-card p{position:relative;color:var(--muted);font-size:13.5px}
 
 /* =========================================================
    INVENTORY
