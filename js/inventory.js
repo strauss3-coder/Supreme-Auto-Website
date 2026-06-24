@@ -71,7 +71,6 @@
   function vehicleCardHTML(v){
     var tag=v.tag?'<span class="tag">'+v.tag+'</span>':'';
     var fuelEngine=v.engineSize?(v.fuelType+' · '+v.engineSize):v.fuelType;
-    var finance=v.financePerMonth?'<span class="fin">from<b>'+formatPrice(v.financePerMonth)+'</b>p/m</span>':'';
     return (
       '<article class="car">'+
         '<div class="car-media media"><span class="ph">'+v.make+' '+v.model+'</span>'+tag+
@@ -84,7 +83,7 @@
             '<div>'+ICONS.gearbox+v.transmission+'</div>'+
             '<div>'+ICONS.fuel+fuelEngine+'</div>'+
           '</div>'+
-          '<div class="car-price"><span class="p">'+formatPrice(v.price)+'</span>'+finance+'</div>'+
+          '<div class="car-price"><span class="p">'+formatPrice(v.price)+'</span></div>'+
           '<a href="#detail" class="btn btn-ghost" data-vehicle-id="'+v.id+'">View Details</a>'+
         '</div>'+
       '</article>'

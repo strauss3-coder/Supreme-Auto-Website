@@ -10,8 +10,6 @@
   var thumbs=document.getElementById('galleryThumbs');
   var name=document.getElementById('detailName');
   var price=document.getElementById('detailPrice');
-  var financeRow=document.getElementById('detailFinanceRow');
-  var finance=document.getElementById('detailFinance');
   var year=document.getElementById('detailYear');
   var mileage=document.getElementById('detailMileage');
   var transmission=document.getElementById('detailTransmission');
@@ -49,12 +47,6 @@
     renderThumbs(v.images,label);
     name.textContent=label;
     price.textContent=formatPrice(v.price);
-    if(v.financePerMonth){
-      finance.textContent=formatPrice(v.financePerMonth);
-      financeRow.hidden=false;
-    }else{
-      financeRow.hidden=true;
-    }
     year.textContent=v.year;
     mileage.textContent=formatKm(v.mileage);
     transmission.textContent=v.transmission;

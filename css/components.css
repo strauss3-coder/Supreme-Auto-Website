@@ -93,10 +93,8 @@
   padding:16px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .car-spec div{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted)}
 .car-spec svg{width:14px;height:14px;color:var(--faint);flex:0 0 auto}
-.car-price{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:16px}
+.car-price{margin-bottom:16px}
 .car-price .p{font-family:var(--display);font-size:23px;font-weight:600;letter-spacing:-.01em}
-.car-price .fin{text-align:right;font-size:11.5px;color:var(--muted);line-height:1.4}
-.car-price .fin b{font-family:var(--display);color:var(--gold);font-size:14px;display:block;font-weight:500}
 .car .btn{width:100%;justify-content:center}
 
 /* =========================================================
@@ -111,11 +109,8 @@
   transition:.3s;opacity:.62}
 .gallery-thumbs .media:hover,.gallery-thumbs .media.active{opacity:1;border-color:var(--gold)}
 .detail-panel h2{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.02em}
-.detail-panel .price-row{display:flex;align-items:baseline;gap:16px;margin:18px 0 24px;
-  padding-bottom:24px;border-bottom:1px solid var(--border)}
+.detail-panel .price-row{margin:18px 0 24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
 .detail-panel .price-row .p{font-family:var(--display);font-size:34px;font-weight:600;color:#fff}
-.detail-panel .price-row .fin{font-size:13px;color:var(--muted)}
-.detail-panel .price-row .fin b{color:var(--gold);font-family:var(--display)}
 .spec-table{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);
   border:1px solid var(--border);border-radius:var(--r-sm);overflow:hidden;margin-bottom:24px}
 .spec-table div{background:var(--bg);padding:13px 15px;font-size:13px}

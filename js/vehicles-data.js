@@ -9,9 +9,9 @@
    real API later means changing the fetch() URL below and nothing
    else.
 
-   financePerMonth is a real dealer figure only where financeIsEstimate
-   is false; everywhere else it's a rough price/60-month estimate and
-   must be replaced with real finance-partner numbers before launch. */
+   financePerMonth/financeIsEstimate are still in the data but no
+   longer rendered anywhere (removed from both the inventory cards and
+   the detail panel) -- kept in case finance figures come back later. */
 function getVehicles(){
   return fetch('assets/vehicles.json').then(function(res){return res.json();});
 }
