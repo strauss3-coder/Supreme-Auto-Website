@@ -7,6 +7,19 @@
 @keyframes scrolldown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}
   51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
+/* ---- hero ---- */
+@keyframes navFadeDown{to{opacity:1;transform:none}}
+@keyframes heroZoom{from{transform:scale(1.05)}to{transform:scale(1)}}
+@keyframes heroDriftA{0%{transform:translate(0,0)}100%{transform:translate(-6%,4%)}}
+@keyframes heroDriftB{0%{transform:translate(0,0)}100%{transform:translate(5%,-5%)}}
+@keyframes heroParticle{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:.7}90%{opacity:.3}100%{transform:translateY(-90px) translateX(12px);opacity:0}}
+@keyframes heroFadeDown{to{opacity:1;transform:none}}
+@keyframes heroLineReveal{to{opacity:1;transform:none}}
+@keyframes heroFadeUp{to{opacity:1;transform:none}}
+@keyframes heroBtnIn{to{opacity:1;transform:scale(1)}}
+@keyframes heroCardIn{to{opacity:1;transform:none}}
+@keyframes heroArrowBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
@@ -16,6 +29,7 @@
   .inventory-grid{grid-template-columns:repeat(2,1fr)}
   .filter-bar{grid-template-columns:repeat(4,1fr);}
   .filter-bar .btn{grid-column:1/-1}
+  .hero-trust{grid-template-columns:repeat(2,1fr);max-width:520px}
 }
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}
@@ -32,10 +46,12 @@
   .filter-bar{grid-template-columns:1fr 1fr}
   .form-row{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr 1fr}
-  .hero-actions{flex-direction:column}.hero-actions .btn{width:100%;justify-content:center}
+  .hero-actions{flex-direction:column}.hero-actions .btn-hero{width:100%;justify-content:center}
+  .hero-trust{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
+  .nav,.hero-tag,.hero-heading .line,.hero-sub,.hero-actions,.trust-card{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }

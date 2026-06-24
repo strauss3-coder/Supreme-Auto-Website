@@ -39,22 +39,48 @@
 
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="home">
-  <div class="hero-bg">
-    <span class="ph" style="position:absolute;inset:0;z-index:0">Hero Vehicle</span>
-    <img src="assets/images/Bmw_320d.png" alt="BMW 320d at Supreme Auto, Pretoria North" onerror="this.remove()">
+  <div class="hero-media">
+    <img class="hero-img" src="assets/images/hero-background.jpg" alt="Premium vehicle on the Supreme Auto showroom floor, Pretoria North" loading="eager" onerror="this.remove()">
   </div>
-  <div class="hero-glow gold"></div><div class="hero-glow"></div>
-  <div class="wrap">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-blur" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow--red" aria-hidden="true"></div>
+  <div class="hero-glow hero-glow--gold" aria-hidden="true"></div>
+  <div class="hero-particles" aria-hidden="true">
+    <span class="hero-particle"></span><span class="hero-particle"></span><span class="hero-particle"></span>
+    <span class="hero-particle"></span><span class="hero-particle"></span><span class="hero-particle"></span>
+    <span class="hero-particle"></span>
+  </div>
+
+  <div class="wrap hero-content">
     <span class="hero-tag"><span class="dot"></span>Premium vehicles · Pretoria North</span>
-    <h1>Find your next <em>premium</em> vehicle.</h1>
-    <p class="sub">Carefully inspected luxury and performance vehicles, transparent pricing, and finance assistance from a dealership that puts trust before the sale.</p>
+
+    <h1 class="hero-heading">
+      <span class="line">Premium Vehicles.</span>
+      <span class="line">Trusted People.</span>
+      <span class="line line-accent">Exceptional Value.</span>
+    </h1>
+
+    <p class="hero-sub">Carefully inspected vehicles, transparent pricing and flexible finance solutions from a dealership committed to earning your trust before making a sale.</p>
+
     <div class="hero-actions">
-      <a href="#inventory" class="btn btn-primary">Browse Inventory
+      <a href="#inventory" class="btn-hero btn-hero-primary">Browse Inventory
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a href="#contact" class="btn btn-ghost">Contact Us</a>
+      <a href="#contact" class="btn-hero btn-hero-ghost">Contact Us</a>
+    </div>
+
+    <div class="hero-trust">
+      <div class="trust-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></span><span>Multi-Point Inspected</span></div>
+      <div class="trust-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><span>Finance Available</span></div>
+      <div class="trust-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16l-4-4 4-4M3 12h13M17 8l4 4-4 4M21 12H8"/></svg></span><span>Trade-ins Welcome</span></div>
+      <div class="trust-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></svg></span><span>Nationwide Delivery</span></div>
     </div>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+
+  <div class="hero-scroll" id="heroScroll" aria-hidden="true">
+    <span class="track"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
 </section>
 
 <!-- ===================== ABOUT ===================== -->
@@ -479,5 +505,6 @@
 <script src="js/script.js"></script>
 <script src="js/ui.js"></script>
 <script src="js/animations.js"></script>
+<script src="js/hero.js"></script>
 </body>
 </html>
