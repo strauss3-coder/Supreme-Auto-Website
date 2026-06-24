@@ -43,8 +43,21 @@
 .fw-progress-line.is-done{background:var(--gold-soft)}
 
 .fw-body{flex:1 1 auto;min-width:0;overflow:hidden;padding:26px 30px}
-.fw-steps{display:flex;width:500%;transition:transform .45s var(--ease)}
-.fw-step{flex:0 0 20%;width:20%;min-width:0;max-height:calc(90vh - 230px);overflow-y:auto;padding-right:6px}
+/* .fw-steps has a fixed height (not max-height) because its children
+   are position:absolute -- an absolutely-positioned child contributes
+   nothing to its parent's auto height, so without an explicit height
+   here the container would collapse to 0. Each .fw-step occupies the
+   full box and is shown one at a time via display:none/block (NOT
+   laid out side-by-side and translated) -- only the active step, and
+   briefly during a transition its incoming/outgoing neighbour, are
+   ever display:block at the same time, and since both are
+   position:absolute they overlap in the same box rather than sitting
+   side-by-side, so neither can push the other out of bounds the way
+   a flex/grid sibling with min-width:auto could. */
+.fw-steps{position:relative;height:calc(90vh - 230px)}
+.fw-step{display:none;position:absolute;inset:0;overflow-y:auto;padding-right:6px;
+  transition:transform .35s var(--ease),opacity .35s var(--ease)}
+.fw-step.is-active{display:block}
 .fw-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .fw-row-3{grid-template-columns:1fr 1fr 1fr}
 .fw-optional{color:var(--faint);font-weight:400;text-transform:none;letter-spacing:0}
@@ -80,7 +93,7 @@
   .fw-progress-step small{display:none}
   .fw-body{padding:20px}
   .fw-row,.fw-row-3{grid-template-columns:1fr}
-  .fw-step{max-height:calc(92vh - 200px)}
+  .fw-steps{height:calc(92vh - 200px)}
   .fw-foot{padding:16px 20px;flex-wrap:wrap}
   .fw-review-grid{grid-template-columns:1fr}
 }

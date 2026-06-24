@@ -16,7 +16,6 @@
   var nextBtn=document.getElementById('fwNext');
   var sendBtn=document.getElementById('fwSend');
   var startOverBtn=document.getElementById('fwStartOver');
-  var stepsTrack=document.getElementById('fwSteps');
   var stepLabel=document.getElementById('fwStepLabel');
   var reviewEl=document.getElementById('fwReview');
   var emailPreviewEl=document.getElementById('fwEmailPreview');
@@ -284,17 +283,78 @@
     sendBtn.hidden=currentStep!==5;
   }
 
-  function goToStep(n){
-    currentStep=Math.max(1,Math.min(TOTAL_STEPS,n));
-    stepsTrack.style.transform='translateX(-'+((currentStep-1)*20)+'%)';
+  /* Only the active step is ever in the layout at rest (display:none
+     on every other step -- they contribute nothing to sizing and
+     can't collide with the active one). During a transition the
+     incoming/outgoing pair briefly share the same position:absolute
+     box and crossfade+shift, rather than sitting side-by-side, so
+     there's never a width-based overlap to begin with. */
+  var transitioning=false;
+
+  function stepEl(n){return modal.querySelector('.fw-step[data-step="'+n+'"]');}
+
+  function refreshStepChrome(){
     stepLabel.textContent='Step '+currentStep+' of '+TOTAL_STEPS+' · '+STEP_NAMES[currentStep-1];
     updateProgress();
     updateFooter();
     if(currentStep===4)renderReview();
     if(currentStep===5)renderEmailPreview();
     saveDraft();
-    var firstField=modal.querySelector('.fw-step[data-step="'+currentStep+'"] input, .fw-step[data-step="'+currentStep+'"] select');
+  }
+
+  function focusFirstField(el){
+    var firstField=el.querySelector('input, select, textarea');
     if(firstField)firstField.focus();
+  }
+
+  function showStepImmediate(n){
+    currentStep=Math.max(1,Math.min(TOTAL_STEPS,n));
+    document.querySelectorAll('.fw-step').forEach(function(el){
+      var isActive=Number(el.getAttribute('data-step'))===currentStep;
+      el.classList.toggle('is-active',isActive);
+      el.style.display=isActive?'block':'none';
+      el.style.opacity='';
+      el.style.transform='';
+    });
+    refreshStepChrome();
+    focusFirstField(stepEl(currentStep));
+  }
+
+  function goToStep(n){
+    var target=Math.max(1,Math.min(TOTAL_STEPS,n));
+    if(target===currentStep||transitioning)return;
+    var oldEl=stepEl(currentStep),newEl=stepEl(target);
+    var forward=target>currentStep;
+    transitioning=true;
+
+    newEl.style.transition='none';
+    newEl.style.display='block';
+    newEl.style.opacity='0';
+    newEl.style.transform='translateX('+(forward?28:-28)+'px)';
+    void newEl.offsetHeight; /* commit the no-transition starting state before re-enabling it */
+    newEl.style.transition='';
+
+    currentStep=target;
+    refreshStepChrome();
+
+    requestAnimationFrame(function(){
+      newEl.style.opacity='1';
+      newEl.style.transform='translateX(0)';
+      oldEl.style.opacity='0';
+      oldEl.style.transform='translateX('+(forward?-28:28)+'px)';
+    });
+
+    setTimeout(function(){
+      oldEl.style.display='none';
+      oldEl.style.opacity='';
+      oldEl.style.transform='';
+      oldEl.classList.remove('is-active');
+      newEl.style.opacity='';
+      newEl.style.transform='';
+      newEl.classList.add('is-active');
+      transitioning=false;
+      focusFirstField(newEl);
+    },360);
   }
 
   nextBtn.addEventListener('click',function(){
@@ -318,7 +378,7 @@
     modal.querySelectorAll('input[type="radio"]').forEach(function(el){el.checked=false;});
     toggleTradeInDetails();
     clearDraft();
-    goToStep(1);
+    showStepImmediate(1);
   });
 
   /* ---------- open/close, scroll lock, focus trap ---------- */
@@ -354,9 +414,9 @@
     var draft=loadDraft();
     if(draft&&draft.data){
       applyFields(draft.data);
-      goToStep(draft.step||1);
+      showStepImmediate(draft.step||1);
     }else{
-      goToStep(1);
+      showStepImmediate(1);
     }
 
     document.addEventListener('keydown',onKeydown);
