@@ -65,11 +65,13 @@
     fillSelect(modelSelect,uniqueSorted(pool.map(function(v){return v.model;})));
   }
 
-  function formatPrice(n){return 'R'+n.toLocaleString('en-ZA');}
-  function formatKm(n){return n.toLocaleString('en-ZA')+' km';}
+  function formatPrice(n){return n==null?'POA':'R'+n.toLocaleString('en-ZA');}
+  function formatKm(n){return n==null?'—':n.toLocaleString('en-ZA')+' km';}
 
   function vehicleCardHTML(v){
     var tag=v.tag?'<span class="tag">'+v.tag+'</span>':'';
+    var fuelEngine=v.engineSize?(v.fuelType+' · '+v.engineSize):v.fuelType;
+    var finance=v.financePerMonth?'<span class="fin">from<b>'+formatPrice(v.financePerMonth)+'</b>p/m</span>':'';
     return (
       '<article class="car">'+
         '<div class="car-media media"><span class="ph">'+v.make+' '+v.model+'</span>'+tag+
@@ -80,11 +82,10 @@
             '<div>'+ICONS.calendar+v.year+'</div>'+
             '<div>'+ICONS.gauge+formatKm(v.mileage)+'</div>'+
             '<div>'+ICONS.gearbox+v.transmission+'</div>'+
-            '<div>'+ICONS.fuel+v.fuelType+' · '+v.engineSize+'</div>'+
+            '<div>'+ICONS.fuel+fuelEngine+'</div>'+
           '</div>'+
-          '<div class="car-price"><span class="p">'+formatPrice(v.price)+'</span>'+
-            '<span class="fin">from<b>'+formatPrice(v.financePerMonth)+'</b>p/m</span></div>'+
-          '<a href="#detail" class="btn btn-ghost">View Details</a>'+
+          '<div class="car-price"><span class="p">'+formatPrice(v.price)+'</span>'+finance+'</div>'+
+          '<a href="#detail" class="btn btn-ghost" data-vehicle-id="'+v.id+'">View Details</a>'+
         '</div>'+
       '</article>'
     );
@@ -121,6 +122,10 @@
 
   function matchesPrice(price,bucketLabel){
     if(bucketLabel.indexOf('Any')===0)return true;
+    /* a POA (null) price must only match "Any price" -- relational
+       operators coerce null to 0, so without this check a POA vehicle
+       would wrongly satisfy "Under R200k" */
+    if(price==null)return false;
     var range=PRICE_BUCKETS[bucketLabel];
     if(!range)return true;
     return price>=range[0]&&price<=range[1];
@@ -159,6 +164,18 @@
 
   clearBtns.forEach(function(btn){
     btn.addEventListener('click',clearFilters);
+  });
+
+  /* event delegation on the grid container -- survives re-renders from
+     filtering, since the listener lives on the static parent, not on
+     the dynamically-replaced cards themselves */
+  grid.addEventListener('click',function(e){
+    var link=e.target.closest('[data-vehicle-id]');
+    if(!link)return;
+    var vehicle=ALL_VEHICLES.filter(function(v){
+      return v.id===Number(link.getAttribute('data-vehicle-id'));
+    })[0];
+    if(vehicle&&window.renderVehicleDetail)window.renderVehicleDetail(vehicle);
   });
 
   getVehicles().then(function(vehicles){

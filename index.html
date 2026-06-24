@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=5">
-<link rel="stylesheet" href="css/components.css?v=5">
-<link rel="stylesheet" href="css/animations.css?v=5">
+<link rel="stylesheet" href="css/style.css?v=7">
+<link rel="stylesheet" href="css/components.css?v=7">
+<link rel="stylesheet" href="css/animations.css?v=7">
 </head>
 <body>
 
@@ -121,6 +121,42 @@
     </div>
   </div>
 </section>
+<!-- ===================== VEHICLE DETAIL PREVIEW ===================== -->
+<section class="section detail" id="detail">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Vehicle Preview</span>
+      <h2>Every detail, before you visit.</h2>
+    </div>
+    <div class="detail-grid">
+      <div class="reveal">
+        <div class="gallery-main media"><span class="ph">Vehicle Gallery</span><img id="detailImage" src="assets/images/Bmw_320d.png" alt="BMW 320d" onerror="this.remove()"></div>
+      </div>
+      <div class="detail-panel reveal" data-delay="1">
+        <h2 id="detailName">BMW 320d</h2>
+        <div class="price-row"><span class="p" id="detailPrice">R489,000</span><span class="fin" id="detailFinanceRow">finance from <b id="detailFinance">R8,400</b> p/m*</span></div>
+        <div class="spec-table">
+          <div><small>Year</small><b id="detailYear">2020</b></div>
+          <div><small>Mileage</small><b id="detailMileage">45,000 km</b></div>
+          <div><small>Transmission</small><b id="detailTransmission">Automatic</b></div>
+          <div><small>Fuel</small><b id="detailFuel">Diesel</b></div>
+          <div><small>Engine</small><b id="detailEngine">2.0L</b></div>
+          <div><small>Power</small><b id="detailPower">140 kW</b></div>
+        </div>
+        <p class="detail-desc" id="detailDescription"></p>
+        <div class="dealer-card">
+          <div class="dm">SA</div>
+          <div><b>Supreme Auto</b><small>Pretoria North · Premium dealership</small></div>
+        </div>
+        <div class="detail-actions">
+          <a href="#contact" class="btn btn-primary">Enquire Now</a>
+          <a href="#" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.1-.5 0a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6 8.6c0 1.8 1.3 3.5 1.5 3.8s2.6 4 6.3 5.3c2.3.8 2.4.5 2.9.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ===================== ABOUT ===================== -->
 <section class="section" id="about">
@@ -185,55 +221,6 @@
       <div class="why-cell reveal"><span class="n">04</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.4 8.4 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5z"/></svg>Excellent Support</h3><p>Real people who answer quickly and look after you through the whole journey.</p></div>
       <div class="why-cell reveal" data-delay="1"><span class="n">05</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg>Trusted Dealership</h3><p>Years of reviews and repeat buyers — our reputation does the talking.</p></div>
       <div class="why-cell reveal" data-delay="2"><span class="n">06</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l-1.5-7h-11zM7 10l1-4h8l1 4"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>Quality Brands</h3><p>Audi, BMW, Hyundai, Volkswagen, Nissan, Mini and more — trusted marques for every budget.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== VEHICLE DETAIL PREVIEW ===================== -->
-<section class="section detail" id="detail">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Vehicle Preview</span>
-      <h2>Every detail, before you visit.</h2>
-    </div>
-    <div class="detail-grid">
-      <div class="reveal">
-        <div class="gallery-main media"><span class="ph">Vehicle Gallery</span><img id="galleryMain" src="assets/images/Bmw_320d.png" alt="BMW 320d gallery" onerror="this.remove()"></div>
-        <div class="gallery-thumbs">
-          <div class="media active" data-src="assets/images/Bmw_320d.png"><span class="ph">1</span><img src="assets/images/Bmw_320d.png" alt="" onerror="this.remove()"></div>
-          <div class="media" data-src="assets/images/Audi_A3_Sline_Pretorai_North.png"><span class="ph">2</span><img src="assets/images/Audi_A3_Sline_Pretorai_North.png" alt="" onerror="this.remove()"></div>
-          <div class="media" data-src="assets/images/Mini_Cooper_S_Pretoria_North.png"><span class="ph">3</span><img src="assets/images/Mini_Cooper_S_Pretoria_North.png" alt="" onerror="this.remove()"></div>
-          <div class="media" data-src="assets/images/Nissan_Qashai_Pretoria_North.png"><span class="ph">4</span><img src="assets/images/Nissan_Qashai_Pretoria_North.png" alt="" onerror="this.remove()"></div>
-        </div>
-      </div>
-      <div class="detail-panel reveal" data-delay="1">
-        <h2>BMW 320d</h2>
-        <div class="price-row"><span class="p">R489,000</span><span class="fin">finance from <b>R8,400</b> p/m*</span></div>
-        <div class="spec-table">
-          <div><small>Year</small><b>2020</b></div>
-          <div><small>Mileage</small><b>45,000 km</b></div>
-          <div><small>Transmission</small><b>8-speed Auto</b></div>
-          <div><small>Fuel</small><b>Diesel</b></div>
-          <div><small>Engine</small><b>2.0L Turbo</b></div>
-          <div><small>Power</small><b>140 kW</b></div>
-        </div>
-        <ul class="feat-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Full service history</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Leather upholstery</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Harman Kardon audio</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Sport Line trim</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Heads-up display</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Adaptive suspension</li>
-        </ul>
-        <div class="dealer-card">
-          <div class="dm">SA</div>
-          <div><b>Supreme Auto</b><small>Pretoria North · Premium dealership</small></div>
-        </div>
-        <div class="detail-actions">
-          <a href="#contact" class="btn btn-primary">Enquire Now</a>
-          <a href="#" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.1-.5 0a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6 8.6c0 1.8 1.3 3.5 1.5 3.8s2.6 4 6.3 5.3c2.3.8 2.4.5 2.9.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -350,11 +337,11 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=5"></script>
-<script src="js/ui.js?v=5"></script>
-<script src="js/vehicles-data.js?v=5"></script>
-<script src="js/inventory.js?v=5"></script>
-<script src="js/animations.js?v=5"></script>
-<script src="js/hero.js?v=5"></script>
+<script src="js/script.js?v=7"></script>
+<script src="js/vehicles-data.js?v=7"></script>
+<script src="js/detail.js?v=7"></script>
+<script src="js/inventory.js?v=7"></script>
+<script src="js/animations.js?v=7"></script>
+<script src="js/hero.js?v=7"></script>
 </body>
 </html>

@@ -1,22 +1,47 @@
 /* ========== vehicle inventory data ==========
-   Single source of truth for the inventory grid and all filter dropdowns.
-   To move this to a real backend later: delete the VEHICLES array below
-   and change getVehicles() to `return fetch('vehicles.json').then(r=>r.json());`
-   -- inventory.js only ever calls getVehicles(), so nothing else changes. */
-const VEHICLES = [
-  {id:1,make:'BMW',model:'320d',price:489000,year:2020,mileage:45000,transmission:'Automatic',fuelType:'Diesel',bodyType:'Sedan',engineSize:'2.0L',image:'assets/images/Bmw_320d.png',financePerMonth:8400,featured:true,tag:'Featured'},
-  {id:2,make:'Audi',model:'A3 S-Line',price:459000,year:2021,mileage:32000,transmission:'Automatic',fuelType:'Petrol',bodyType:'Hatchback',engineSize:'1.4L',image:'assets/images/Audi_A3_Sline_Pretorai_North.png',financePerMonth:7900},
-  {id:3,make:'Mini',model:'Cooper S',price:399000,year:2020,mileage:38200,transmission:'Automatic',fuelType:'Petrol',bodyType:'Hatchback',engineSize:'2.0L',image:'assets/images/Mini_Cooper_S_Pretoria_North.png',financePerMonth:6900},
-  {id:4,make:'Hyundai',model:'Creta',price:349000,year:2021,mileage:29800,transmission:'Automatic',fuelType:'Petrol',bodyType:'SUV',engineSize:'1.5L',image:'assets/images/Hyundai_Creta.png',financePerMonth:6000},
-  {id:5,make:'Nissan',model:'Qashqai',price:359000,year:2020,mileage:47500,transmission:'Automatic',fuelType:'Petrol',bodyType:'SUV',engineSize:'1.2L',image:'assets/images/Nissan_Qashai_Pretoria_North.png',financePerMonth:6200},
-  {id:6,make:'Renault',model:'Kwid',price:159000,year:2022,mileage:15200,transmission:'Manual',fuelType:'Petrol',bodyType:'Hatchback',engineSize:'1.0L',image:'assets/images/Renault_Kwid_Pretoria_North.png',financePerMonth:2800,tag:'Low km'},
-  {id:7,make:'Volkswagen',model:'Polo',price:249000,year:2021,mileage:33400,transmission:'Manual',fuelType:'Petrol',bodyType:'Hatchback',engineSize:'1.0L',image:'assets/images/Volskwagen_Polo.png',financePerMonth:4300},
-  {id:8,make:'Nissan',model:'Micra',price:219000,year:2021,mileage:24000,transmission:'Manual',fuelType:'Petrol',bodyType:'Hatchback',engineSize:'1.0L',image:'assets/images/Nissan_Micra.png',financePerMonth:3800},
-  {id:9,make:'Hyundai',model:'Accent',price:189000,year:2019,mileage:61000,transmission:'Manual',fuelType:'Petrol',bodyType:'Sedan',engineSize:'1.6L',image:'assets/images/Hyudai_Accent.png',financePerMonth:3300},
-  {id:10,make:'Chery',model:'Tiggo',price:319000,year:2022,mileage:18500,transmission:'Automatic',fuelType:'Petrol',bodyType:'SUV',engineSize:'1.5L',image:'assets/images/Chery_Tiggo.png',financePerMonth:5500},
-  {id:11,make:'Volkswagen',model:'Combi',price:329000,year:2019,mileage:68000,transmission:'Manual',fuelType:'Diesel',bodyType:'MPV',engineSize:'2.0L',image:'assets/images/Volswagen_Combie.png',financePerMonth:5700}
-];
+   Single source of truth for the inventory grid, the filter dropdowns,
+   and the vehicle detail preview. Backed by assets/vehicles.json --
+   inventory.js and detail.js never read that file directly, they only
+   ever call getVehicles(), so swapping this for a real API later means
+   changing the fetch() URL below and nothing else.
+
+   normalizeVehicle() maps the raw export's field names (title,
+   fuel_type, body_type, engine_size, image_url, stock_number) onto the
+   schema the rest of the site expects, and fills in gaps the source
+   data is missing:
+   - price/mileage/engine_size are null on ~15 of the 25 real listings
+     -- these render as "POA" / "—" rather than a misleading 0.
+   - financePerMonth has no real figure in the source data, so it's a
+     rough estimate (price over a 60-month term, rounded to the
+     nearest R100). Flag this to the client before launch -- it should
+     be replaced with real finance-partner numbers.
+   - image_url is null on every record (no photos in this export yet),
+     so every vehicle falls back to the dealership lot photo until
+     real photography is supplied. */
+function normalizeVehicle(raw,index){
+  var price=(raw.price==null||raw.price===0)?null:raw.price;
+  return {
+    id:index+1,
+    stockNumber:raw.stock_number||null,
+    make:raw.make,
+    model:raw.model,
+    price:price,
+    year:raw.year,
+    mileage:(raw.mileage==null)?null:raw.mileage,
+    transmission:raw.transmission,
+    fuelType:raw.fuel_type,
+    bodyType:raw.body_type,
+    engineSize:raw.engine_size?raw.engine_size+'L':null,
+    power:null,
+    image:raw.image_url||'assets/images/Supreme_Auto_Lot.png',
+    financePerMonth:price?Math.round(price/60/100)*100:null,
+    description:raw.description||'',
+    featured:false
+  };
+}
 
 function getVehicles(){
-  return Promise.resolve(VEHICLES);
+  return fetch('assets/vehicles.json')
+    .then(function(res){return res.json();})
+    .then(function(raw){return raw.map(normalizeVehicle);});
 }

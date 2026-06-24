@@ -105,11 +105,7 @@
 .detail{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
 .detail-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start}
 .gallery-main{aspect-ratio:16/10;border-radius:var(--r-lg);border:1px solid var(--border);
-  box-shadow:var(--shadow);margin-bottom:14px}
-.gallery-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.gallery-thumbs .media{aspect-ratio:16/11;border-radius:12px;border:1px solid var(--border);cursor:pointer;
-  transition:.3s;opacity:.62}
-.gallery-thumbs .media:hover,.gallery-thumbs .media.active{opacity:1;border-color:var(--gold)}
+  box-shadow:var(--shadow)}
 .detail-panel h2{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.02em}
 .detail-panel .price-row{display:flex;align-items:baseline;gap:16px;margin:18px 0 24px;
   padding-bottom:24px;border-bottom:1px solid var(--border)}
@@ -122,9 +118,7 @@
 .spec-table div small{color:var(--faint);display:block;font-size:11px;letter-spacing:.06em;
   text-transform:uppercase;margin-bottom:3px;font-family:var(--display)}
 .spec-table div b{font-weight:500;font-size:14px}
-.feat-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:26px}
-.feat-list li{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--muted)}
-.feat-list svg{width:15px;height:15px;color:var(--gold);flex:0 0 auto}
+.detail-desc{color:var(--muted);font-size:14.5px;line-height:1.7;margin-bottom:26px}
 .dealer-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
   padding:18px;margin-bottom:22px;display:flex;align-items:center;gap:14px}
 .dealer-card .dm{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,#1a1a1c,#000);
