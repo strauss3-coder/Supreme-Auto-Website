@@ -29,7 +29,6 @@
   .inventory-grid{grid-template-columns:repeat(2,1fr)}
   .filter-bar{grid-template-columns:repeat(4,1fr);}
   .filter-bar .btn{grid-column:1/-1}
-  .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr));max-width:520px}
 }
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}
@@ -37,6 +36,7 @@
   .about-grid,.finance-grid,.detail-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
   .about-media{aspect-ratio:16/10}
   .section{padding:78px 0}
+  .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr));max-width:520px}
 }
 @media(max-width:600px){
   .wrap{padding:0 20px}
