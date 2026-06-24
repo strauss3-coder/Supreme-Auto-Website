@@ -57,4 +57,15 @@
   });
 
   update();
+
+  /* "Read more" only exists in markup on reviews long enough to clamp,
+     so no need to detect overflow -- just toggle the clamp and label */
+  track.querySelectorAll('.testi-readmore').forEach(function(btn){
+    var text=btn.previousElementSibling;
+    if(!text)return;
+    btn.addEventListener('click',function(){
+      var expanded=text.classList.toggle('is-expanded');
+      btn.textContent=expanded?'Read less':'Read more';
+    });
+  });
 })();

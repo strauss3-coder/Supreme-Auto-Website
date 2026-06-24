@@ -29,7 +29,7 @@
   .inventory-grid{grid-template-columns:repeat(2,1fr)}
   .filter-bar{grid-template-columns:repeat(4,1fr);}
   .filter-actions{grid-column:1/-1}
-  .partners-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .partners-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .testi-track > .testi{flex:0 0 calc((100% - 22px)/2)}
 }
 @media(max-width:900px){

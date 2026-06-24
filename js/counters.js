@@ -6,13 +6,15 @@
 
   function animateCount(el){
     var target=Number(el.getAttribute('data-count-to'))||0;
-    if(reduceMotion){el.textContent=target.toLocaleString('en-ZA');return;}
+    var decimals=Number(el.getAttribute('data-decimals'))||0;
+    function format(n){return decimals?n.toFixed(decimals):Math.round(n).toLocaleString('en-ZA');}
+    if(reduceMotion){el.textContent=format(target);return;}
     var start=null,duration=1400;
     function step(ts){
       if(!start)start=ts;
       var progress=Math.min((ts-start)/duration,1);
       var eased=1-Math.pow(1-progress,3);
-      el.textContent=Math.round(target*eased).toLocaleString('en-ZA');
+      el.textContent=format(target*eased);
       if(progress<1)requestAnimationFrame(step);
     }
     requestAnimationFrame(step);

@@ -58,7 +58,7 @@
    FINANCING PARTNERS
    ========================================================= */
 .why{background:linear-gradient(180deg,var(--bg),var(--bg-3),var(--bg))}
-.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.partners-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
 .partner-card{position:relative;background:var(--surface);border:1px solid var(--border);
   border-radius:20px;padding:34px 26px;text-align:center;overflow:hidden;backdrop-filter:blur(8px);
   transition:transform .4s var(--ease),border-color .4s var(--ease),background .4s var(--ease);cursor:default}
@@ -191,15 +191,31 @@
 /* =========================================================
    TESTIMONIALS
    ========================================================= */
-.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.trust-bar-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
-  padding:18px;text-align:center;backdrop-filter:blur(8px)}
-.trust-bar-item b{font-family:var(--display);font-size:22px;font-weight:600;color:var(--text);display:block}
-.trust-bar-item small{color:var(--muted);font-size:12px;letter-spacing:.02em;margin-top:4px;display:block}
+/* ---- trust bar: same glass/icon/glow language as svc/partner-card/fstep ---- */
+.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:48px}
+.trust-bar-item{position:relative;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:24px 18px;text-align:center;overflow:hidden;backdrop-filter:blur(8px);
+  transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.trust-bar-item:hover{transform:translateY(-4px);border-color:var(--border-2);box-shadow:var(--shadow)}
+.trust-bar-glow{position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:120px;height:120px;
+  border-radius:50%;background:var(--gold);filter:blur(28px);opacity:.18;pointer-events:none;
+  transition:opacity .4s var(--ease)}
+.trust-bar-item:hover .trust-bar-glow{opacity:.32}
+.trust-bar-ic{position:relative;width:44px;height:44px;margin:0 auto 14px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(255,255,255,.05);border:1px solid var(--gold-soft);
+  backdrop-filter:blur(8px);opacity:0;transform:scale(.8);
+  transition:transform .5s var(--ease) .1s,opacity .5s var(--ease) .1s}
+.reveal.in .trust-bar-ic{opacity:1;transform:scale(1)}
+.trust-bar-item:hover .trust-bar-ic{transform:scale(1.08) rotate(-4deg)}
+.trust-bar-ic svg{width:20px;height:20px;color:var(--gold)}
+.trust-bar-item b{position:relative;font-family:var(--display);font-size:24px;font-weight:600;
+  color:var(--text);display:block}
+.trust-bar-item small{position:relative;color:var(--muted);font-size:12px;letter-spacing:.02em;
+  margin-top:4px;display:block}
 
 .testi-carousel{display:flex;align-items:center;gap:14px}
 .testi-viewport{flex:1 1 auto;overflow:hidden}
-.testi-track{display:flex;gap:22px;transition:transform .5s var(--ease)}
+.testi-track{display:flex;align-items:stretch;gap:22px;transition:transform .5s var(--ease)}
 .testi-track > .testi{flex:0 0 calc((100% - 44px)/3)}
 .testi-nav{flex:0 0 auto;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;
   background:var(--surface);border:1px solid var(--border-2);color:var(--text);cursor:pointer;
@@ -210,25 +226,36 @@
 .testi-nav:disabled{opacity:.3;cursor:not-allowed}
 .testi-nav:disabled:hover{border-color:var(--border-2);color:var(--text)}
 
+/* card structure is fixed and identical on every card: name -> verified
+   badge -> stars -> review text. gap handles the vertical rhythm between
+   them so spacing never depends on which elements a given review has. */
 .testi{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:30px;
   backdrop-filter:blur(8px);transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease);
-  display:flex;flex-direction:column}
+  display:flex;flex-direction:column;gap:14px}
 .testi:hover{transform:translateY(-4px);border-color:var(--border-2);box-shadow:0 24px 50px -20px var(--red-soft)}
-.testi--compact{padding:22px 30px}
-.stars{display:flex;gap:3px;margin-bottom:18px}
-.stars svg{width:16px;height:16px;color:var(--gold)}
-.stars svg.is-empty{color:var(--border-2)}
-.testi p{font-size:15px;line-height:1.7;margin-bottom:22px}
 .testi-who{display:flex;align-items:center;gap:13px}
 .testi-av{width:44px;height:44px;border-radius:50%;flex:0 0 auto;display:grid;place-items:center;
   font-family:var(--display);font-weight:600;color:var(--gold);
   background:linear-gradient(135deg,#1a1a1c,#000);border:1px solid var(--gold-soft)}
-.testi-who b{font-size:14.5px;font-family:var(--display)}
-.testi-who small{color:var(--muted);font-size:12.5px;display:block}
-.testi-verified{display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:5px 11px;
-  border-radius:99px;background:rgba(22,163,74,.12);border:1px solid var(--green-soft);
-  color:var(--green);font-size:11px;letter-spacing:.02em;align-self:flex-start}
-.testi-verified svg{width:11px;height:11px;flex:0 0 auto}
+.testi-who b{font-size:16px;font-weight:700;font-family:var(--display);letter-spacing:-.005em}
+.testi-verified{display:inline-flex;align-items:center;gap:7px;padding:6px 12px 6px 6px;
+  border-radius:99px;background:rgba(255,255,255,.05);border:1px solid var(--green-soft);
+  backdrop-filter:blur(8px);box-shadow:0 0 14px -4px var(--green-soft);
+  color:var(--muted);font-size:11.5px;letter-spacing:.02em;align-self:flex-start}
+.testi-verified-ic{width:16px;height:16px;border-radius:50%;background:var(--green);
+  display:grid;place-items:center;flex:0 0 auto}
+.testi-verified-ic svg{width:9px;height:9px;color:#0B0B0B}
+.stars{display:flex;gap:3px}
+.stars svg{width:16px;height:16px;color:var(--gold);flex:0 0 auto}
+.stars svg.is-empty{color:var(--border-2)}
+.testi-text{flex:1 1 auto;font-size:15px;line-height:1.7;color:var(--muted);margin:0;
+  display:-webkit-box;-webkit-line-clamp:5;line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.testi-text.is-expanded{-webkit-line-clamp:unset;line-clamp:unset;overflow:visible}
+.testi-text--meta{font-style:italic;color:var(--faint)}
+.testi-readmore{align-self:flex-start;margin-top:-6px;background:none;border:none;padding:0;
+  color:var(--gold);font-size:13px;font-family:var(--display);cursor:pointer}
+.testi-readmore:hover{text-decoration:underline}
+.testi-readmore:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 /* =========================================================
    CONTACT
