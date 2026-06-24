@@ -28,7 +28,7 @@
   .services-grid,.why-grid,.testi-grid{grid-template-columns:repeat(2,1fr)}
   .inventory-grid{grid-template-columns:repeat(2,1fr)}
   .filter-bar{grid-template-columns:repeat(4,1fr);}
-  .filter-bar .btn{grid-column:1/-1}
+  .filter-actions{grid-column:1/-1}
 }
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}

@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=4">
-<link rel="stylesheet" href="css/components.css?v=4">
-<link rel="stylesheet" href="css/animations.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
+<link rel="stylesheet" href="css/components.css?v=5">
+<link rel="stylesheet" href="css/animations.css?v=5">
 </head>
 <body>
 
@@ -93,184 +93,31 @@
       <p>A selection from our current floor. Use the filters to narrow your search.</p>
     </div>
 
-    <!-- Filter bar (visual) -->
-    <form class="filter-bar reveal" onsubmit="return false">
-      <div class="filter-field"><label>Make</label><select><option>Any make</option><option>Audi</option><option>BMW</option><option>Chery</option><option>Hyundai</option><option>Mini</option><option>Nissan</option><option>Renault</option><option>Volkswagen</option></select></div>
-      <div class="filter-field"><label>Model</label><select><option>Any model</option><option>A3</option><option>320d</option><option>Tiggo</option><option>Accent</option><option>Creta</option><option>Cooper S</option><option>Micra</option><option>Qashqai</option><option>Kwid</option><option>Polo</option><option>Combi</option></select></div>
-      <div class="filter-field"><label>Price</label><select><option>Any price</option><option>Under R200k</option><option>R200k–R350k</option><option>R350k–R500k</option></select></div>
-      <div class="filter-field"><label>Year</label><select><option>Any year</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option></select></div>
-      <div class="filter-field"><label>Body Type</label><select><option>Any body</option><option>Hatchback</option><option>Sedan</option><option>SUV</option><option>MPV</option></select></div>
-      <div class="filter-field"><label>Transmission</label><select><option>Any</option><option>Automatic</option><option>Manual</option></select></div>
-      <div class="filter-field"><label>Fuel</label><select><option>Any fuel</option><option>Petrol</option><option>Diesel</option></select></div>
-      <button class="btn btn-gold">Search</button>
+    <!-- Filter bar -->
+    <form class="filter-bar reveal" id="filterForm">
+      <div class="filter-field"><label for="filterMake">Make</label><select id="filterMake"><option>Any make</option></select></div>
+      <div class="filter-field"><label for="filterModel">Model</label><select id="filterModel"><option>Any model</option></select></div>
+      <div class="filter-field"><label for="filterPrice">Price</label><select id="filterPrice"><option>Any price</option><option>Under R200k</option><option>R200k–R350k</option><option>R350k–R500k</option></select></div>
+      <div class="filter-field"><label for="filterYear">Year</label><select id="filterYear"><option>Any year</option></select></div>
+      <div class="filter-field"><label for="filterBody">Body Type</label><select id="filterBody"><option>Any body</option></select></div>
+      <div class="filter-field"><label for="filterTransmission">Transmission</label><select id="filterTransmission"><option>Any</option></select></div>
+      <div class="filter-field"><label for="filterFuel">Fuel</label><select id="filterFuel"><option>Any fuel</option></select></div>
+      <div class="filter-actions">
+        <button type="submit" class="btn btn-gold">Search</button>
+        <button type="button" class="btn btn-ghost" data-clear-filters>Clear Filters</button>
+      </div>
     </form>
 
-    <div class="inventory-grid">
-      <!-- Card 1 -->
-      <article class="car reveal">
-        <div class="car-media media"><span class="ph">Vehicle 1</span><span class="tag">Featured</span><img src="assets/images/Bmw_320d.png" alt="BMW 320d" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>BMW 320d</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2020</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>45,000 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Diesel · 2.0L</div>
-          </div>
-          <div class="car-price"><span class="p">R489,000</span><span class="fin">from<b>R8,400</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 2 -->
-      <article class="car reveal" data-delay="1">
-        <div class="car-media media"><span class="ph">Vehicle 2</span><img src="assets/images/Audi_A3_Sline_Pretorai_North.png" alt="Audi A3 S-Line" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Audi A3 S-Line</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>32,000 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.4L</div>
-          </div>
-          <div class="car-price"><span class="p">R459,000</span><span class="fin">from<b>R7,900</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 3 -->
-      <article class="car reveal" data-delay="2">
-        <div class="car-media media"><span class="ph">Vehicle 3</span><img src="assets/images/Mini_Cooper_S_Pretoria_North.png" alt="Mini Cooper S" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Mini Cooper S</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2020</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>38,200 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 2.0L</div>
-          </div>
-          <div class="car-price"><span class="p">R399,000</span><span class="fin">from<b>R6,900</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 4 -->
-      <article class="car reveal" data-delay="3">
-        <div class="car-media media"><span class="ph">Vehicle 4</span><img src="assets/images/Hyundai_Creta.png" alt="Hyundai Creta" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Hyundai Creta</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>29,800 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.5L</div>
-          </div>
-          <div class="car-price"><span class="p">R349,000</span><span class="fin">from<b>R6,000</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 5 -->
-      <article class="car reveal">
-        <div class="car-media media"><span class="ph">Vehicle 5</span><img src="assets/images/Nissan_Qashai_Pretoria_North.png" alt="Nissan Qashqai" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Nissan Qashqai</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2020</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>47,500 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.2L</div>
-          </div>
-          <div class="car-price"><span class="p">R359,000</span><span class="fin">from<b>R6,200</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 6 -->
-      <article class="car reveal" data-delay="1">
-        <div class="car-media media"><span class="ph">Vehicle 6</span><span class="tag">Low km</span><img src="assets/images/Renault_Kwid_Pretoria_North.png" alt="Renault Kwid" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Renault Kwid</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2022</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>15,200 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Manual</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.0L</div>
-          </div>
-          <div class="car-price"><span class="p">R159,000</span><span class="fin">from<b>R2,800</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 7 -->
-      <article class="car reveal" data-delay="2">
-        <div class="car-media media"><span class="ph">Vehicle 7</span><img src="assets/images/Volskwagen_Polo.png" alt="Volkswagen Polo" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Volkswagen Polo</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>33,400 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Manual</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.0L</div>
-          </div>
-          <div class="car-price"><span class="p">R249,000</span><span class="fin">from<b>R4,300</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 8 -->
-      <article class="car reveal" data-delay="3">
-        <div class="car-media media"><span class="ph">Vehicle 8</span><img src="assets/images/Nissan_Micra.png" alt="Nissan Micra" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Nissan Micra</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>24,000 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Manual</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.0L</div>
-          </div>
-          <div class="car-price"><span class="p">R219,000</span><span class="fin">from<b>R3,800</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 9 -->
-      <article class="car reveal">
-        <div class="car-media media"><span class="ph">Vehicle 9</span><img src="assets/images/Hyudai_Accent.png" alt="Hyundai Accent" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Hyundai Accent</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2019</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>61,000 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Manual</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.6L</div>
-          </div>
-          <div class="car-price"><span class="p">R189,000</span><span class="fin">from<b>R3,300</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 10 -->
-      <article class="car reveal" data-delay="1">
-        <div class="car-media media"><span class="ph">Vehicle 10</span><img src="assets/images/Chery_Tiggo.png" alt="Chery Tiggo" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Chery Tiggo</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2022</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>18,500 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 1.5L</div>
-          </div>
-          <div class="car-price"><span class="p">R319,000</span><span class="fin">from<b>R5,500</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
-      <!-- Card 11 -->
-      <article class="car reveal" data-delay="2">
-        <div class="car-media media"><span class="ph">Vehicle 11</span><img src="assets/images/Volswagen_Combie.png" alt="Volkswagen Combi" loading="lazy" onerror="this.remove()"></div>
-        <div class="car-body">
-          <h3>Volkswagen Combi</h3>
-          <div class="car-spec">
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2019</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>68,000 km</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Manual</div>
-            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Diesel · 2.0L</div>
-          </div>
-          <div class="car-price"><span class="p">R329,000</span><span class="fin">from<b>R5,700</b>p/m</span></div>
-          <a href="#detail" class="btn btn-ghost">View Details</a>
-        </div>
-      </article>
+    <div class="inventory-grid" id="inventoryGrid"></div>
+
+    <div class="inventory-empty" id="inventoryEmpty" hidden>
+      <span class="eyebrow">No results</span>
+      <h3>No vehicles match your search.</h3>
+      <p>Try widening your filters, or start over with the full inventory.</p>
+      <div class="inventory-empty-actions">
+        <button type="button" class="btn btn-gold" data-clear-filters>Clear Filters</button>
+        <button type="button" class="btn btn-ghost" data-clear-filters>Browse All Vehicles</button>
+      </div>
     </div>
   </div>
 </section>
@@ -503,9 +350,11 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=4"></script>
-<script src="js/ui.js?v=4"></script>
-<script src="js/animations.js?v=4"></script>
-<script src="js/hero.js?v=4"></script>
+<script src="js/script.js?v=5"></script>
+<script src="js/ui.js?v=5"></script>
+<script src="js/vehicles-data.js?v=5"></script>
+<script src="js/inventory.js?v=5"></script>
+<script src="js/animations.js?v=5"></script>
+<script src="js/hero.js?v=5"></script>
 </body>
 </html>
