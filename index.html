@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supreme Auto · Premium Vehicles, Pretoria North</title>
+<meta name="description" content="Supreme Auto — carefully inspected premium vehicles, transparent pricing and finance assistance in Pretoria North. Browse our inventory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="logo"><span class="logo-mark"><span>SA</span></span><b>SUPREME</b> <i>AUTO</i></a>
+    <nav class="nav-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#inventory">Inventory</a>
+      <a href="#finance">Finance</a><a href="#why">Why Choose Us</a><a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">Contact Us</a>
+      <a href="#inventory" class="btn btn-primary">View Inventory</a>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a href="#home">Home</a><a href="#about">About</a><a href="#inventory">Inventory</a>
+  <a href="#finance">Finance</a><a href="#why">Why Choose Us</a><a href="#testimonials">Testimonials</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <span class="ph" style="position:absolute;inset:0;z-index:0">Hero Vehicle</span>
+    <img src="https://siriusascent.co.za/images/BMW_M3.jpg" alt="Premium BMW M3 at Supreme Auto, Pretoria North" onerror="this.remove()">
+  </div>
+  <div class="hero-glow gold"></div><div class="hero-glow"></div>
+  <div class="wrap">
+    <span class="hero-tag"><span class="dot"></span>Premium vehicles · Pretoria North</span>
+    <h1>Find your next <em>premium</em> vehicle.</h1>
+    <p class="sub">Carefully inspected luxury and performance vehicles, transparent pricing, and finance assistance from a dealership that puts trust before the sale.</p>
+    <div class="hero-actions">
+      <a href="#inventory" class="btn btn-primary">Browse Inventory
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#contact" class="btn btn-ghost">Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-media media reveal">
+        <span class="ph">Dealership</span>
+        <img src="https://siriusascent.co.za/images/Mercedes-Benz-Twinning.png" alt="Supreme Auto dealership vehicles" onerror="this.remove()">
+        <div class="badge"><b>4.9★</b><small>Rated by our customers</small></div>
+      </div>
+      <div class="about-copy reveal" data-delay="1">
+        <span class="eyebrow">About Supreme Auto</span>
+        <h2>A dealership built on trust, not pressure.</h2>
+        <p>We're an independent premium dealership in Pretoria North. Every vehicle on our floor is hand-picked and carefully inspected, because the reputation we've built matters more to us than any single sale.</p>
+        <p>From sourcing the exact car you're after to arranging finance and looking after you long after you drive away — we make owning a premium vehicle simple.</p>
+        <ul class="about-list">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Quality, carefully inspected vehicles</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Finance assistance &amp; approvals</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Nationwide delivery &amp; service</li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b><i>1,200</i>+</b><small>Vehicles sold</small></div>
+      <div class="stat reveal" data-delay="1"><b><i>4,800</i>+</b><small>Happy clients</small></div>
+      <div class="stat reveal" data-delay="2"><b><i>12</i></b><small>Years experience</small></div>
+      <div class="stat reveal" data-delay="3"><b><i>95</i>%</b><small>Finance approved</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we offer</span>
+      <h2>Everything you need, under one roof.</h2>
+      <p>From the first enquiry to long after you've taken delivery, we handle the details so you don't have to.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc reveal"><div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14M5 17a2 2 0 1 1-4 0M19 17a2 2 0 1 0 4 0M5 17l1.5-7h11L19 17M7 10l1-4h8l1 4"/></svg></div><h3>Vehicle Sales</h3><p>A curated floor of premium and performance vehicles, each inspected and ready to drive.</p></div>
+      <div class="svc reveal" data-delay="1"><div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 16l-4-4 4-4M3 12h13M17 8l4 4-4 4M21 12H8"/></svg></div><h3>Trade-Ins</h3><p>Fair, transparent valuations on your current car — put straight towards your next one.</p></div>
+      <div class="svc reveal" data-delay="2"><div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div><h3>Vehicle Finance</h3><p>We work with leading banks to find you the best rate — and we handle the paperwork.</p></div>
+      <div class="svc reveal"><div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div><h3>Vehicle Sourcing</h3><p>Looking for something specific? We'll find the exact spec, colour and condition you want.</p></div>
+      <div class="svc reveal" data-delay="1"><div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Warranty Options</h3><p>Optional extended cover for genuine peace of mind, well beyond the keys.</p></div>
+      <div class="svc reveal" data-delay="2"><div class="svc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 1 5.4-5.4z"/></svg></div><h3>After-Sales Support</h3><p>Servicing guidance and aftercare — we're here long after you drive off the floor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY CHOOSE ===================== -->
+<section class="section why" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Supreme Auto</span>
+      <h2>Six reasons buyers keep coming back.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-cell reveal"><span class="n">01</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Carefully Inspected</h3><p>Every vehicle is mechanically and cosmetically checked before it reaches the floor.</p></div>
+      <div class="why-cell reveal" data-delay="1"><span class="n">02</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M5 7h11a3 3 0 0 1 0 6H8a3 3 0 0 0 0 6h11"/></svg>Transparent Pricing</h3><p>The price you see is the price you pay. No surprises, no hidden add-ons.</p></div>
+      <div class="why-cell reveal" data-delay="2"><span class="n">03</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>Finance Assistance</h3><p>Pre-approval guidance and competitive rates across multiple lenders.</p></div>
+      <div class="why-cell reveal"><span class="n">04</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6A8.4 8.4 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5z"/></svg>Excellent Support</h3><p>Real people who answer quickly and look after you through the whole journey.</p></div>
+      <div class="why-cell reveal" data-delay="1"><span class="n">05</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg>Trusted Dealership</h3><p>Years of reviews and repeat buyers — our reputation does the talking.</p></div>
+      <div class="why-cell reveal" data-delay="2"><span class="n">06</span><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14l-1.5-7h-11zM7 10l1-4h8l1 4"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></svg>Quality Brands</h3><p>BMW, Audi, Mercedes-Benz, Land Rover and more — premium marques only.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INVENTORY ===================== -->
+<section class="section" id="inventory">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Featured Inventory</span>
+      <h2>Premium vehicles, ready to drive.</h2>
+      <p>A selection from our current floor. Use the filters to narrow your search.</p>
+    </div>
+
+    <!-- Filter bar (visual) -->
+    <form class="filter-bar reveal" onsubmit="return false">
+      <div class="filter-field"><label>Make</label><select><option>Any make</option><option>BMW</option><option>Audi</option><option>Mercedes-Benz</option><option>Land Rover</option></select></div>
+      <div class="filter-field"><label>Model</label><select><option>Any model</option><option>M3</option><option>S5</option><option>S-Class</option><option>Defender</option></select></div>
+      <div class="filter-field"><label>Price</label><select><option>Any price</option><option>Under R600k</option><option>R600k–R1m</option><option>R1m+</option></select></div>
+      <div class="filter-field"><label>Year</label><select><option>Any year</option><option>2022</option><option>2021</option><option>2020</option><option>2019</option></select></div>
+      <div class="filter-field"><label>Body Type</label><select><option>Any body</option><option>Sedan</option><option>SUV</option><option>Coupé</option><option>Wagon</option></select></div>
+      <div class="filter-field"><label>Transmission</label><select><option>Any</option><option>Automatic</option><option>Manual</option></select></div>
+      <div class="filter-field"><label>Fuel</label><select><option>Any fuel</option><option>Petrol</option><option>Diesel</option></select></div>
+      <button class="btn btn-gold">Search</button>
+    </form>
+
+    <div class="inventory-grid">
+      <!-- Card 1 -->
+      <article class="car reveal">
+        <div class="car-media media"><span class="ph">Vehicle 1</span><span class="tag">Featured</span><img src="https://siriusascent.co.za/images/BMW_M3.jpg" alt="BMW M3 Competition" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>BMW M3 Competition</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>28,400 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 3.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R1,150,000</span><span class="fin">from<b>R19,800</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="car reveal" data-delay="1">
+        <div class="car-media media"><span class="ph">Vehicle 2</span><img src="https://siriusascent.co.za/images/Audi-S5.png" alt="Audi S5 Sportback" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>Audi S5 Sportback</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2020</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>41,200 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 3.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R789,000</span><span class="fin">from<b>R13,600</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="car reveal" data-delay="2">
+        <div class="car-media media"><span class="ph">Vehicle 3</span><img src="https://siriusascent.co.za/images/Range_Rover.jpg" alt="Range Rover Velar" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>Range Rover Velar</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>35,800 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Diesel · 2.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R899,000</span><span class="fin">from<b>R15,500</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="car reveal" data-delay="3">
+        <div class="car-media media"><span class="ph">Vehicle 4</span><img src="https://siriusascent.co.za/images/Mercedes_Benz_1.jpg" alt="Mercedes-Benz S-Class" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>Mercedes-Benz S-Class</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2019</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>52,000 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 3.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R1,290,000</span><span class="fin">from<b>R22,200</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 5 -->
+      <article class="car reveal">
+        <div class="car-media media"><span class="ph">Vehicle 5</span><img src="https://siriusascent.co.za/images/Audi-S4.jpeg" alt="Audi S4 Avant" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>Audi S4 Avant</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2020</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>38,900 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 3.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R699,000</span><span class="fin">from<b>R12,100</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 6 -->
+      <article class="car reveal" data-delay="1">
+        <div class="car-media media"><span class="ph">Vehicle 6</span><span class="tag">Low km</span><img src="https://siriusascent.co.za/images/Land-Rover.png" alt="Land Rover Defender" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>Land Rover Defender</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2022</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>19,500 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Diesel · 3.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R1,350,000</span><span class="fin">from<b>R23,300</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 7 -->
+      <article class="car reveal" data-delay="2">
+        <div class="car-media media"><span class="ph">Vehicle 7</span><img src="https://siriusascent.co.za/images/BMW-320i.jpeg" alt="BMW 320i M Sport" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>BMW 320i M Sport</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>33,100 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 2.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R529,000</span><span class="fin">from<b>R9,200</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+      <!-- Card 8 -->
+      <article class="car reveal" data-delay="3">
+        <div class="car-media media"><span class="ph">Vehicle 8</span><img src="https://siriusascent.co.za/images/Audi-S3.jpg" alt="Audi S3 Sedan" loading="lazy" onerror="this.remove()"></div>
+        <div class="car-body">
+          <h3>Audi S3 Sedan</h3>
+          <div class="car-spec">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>2021</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 12 8 8"/></svg>26,700 km</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v18M18 3v18M6 12h12"/></svg>Automatic</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3 5 14h5l-1 7 9-11h-5z"/></svg>Petrol · 2.0L</div>
+          </div>
+          <div class="car-price"><span class="p">R649,000</span><span class="fin">from<b>R11,200</b>p/m</span></div>
+          <a href="#detail" class="btn btn-ghost">View Details</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VEHICLE DETAIL PREVIEW ===================== -->
+<section class="section detail" id="detail">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Vehicle Preview</span>
+      <h2>Every detail, before you visit.</h2>
+    </div>
+    <div class="detail-grid">
+      <div class="reveal">
+        <div class="gallery-main media"><span class="ph">Vehicle Gallery</span><img id="galleryMain" src="https://siriusascent.co.za/images/BMW_M3.jpg" alt="BMW M3 Competition gallery" onerror="this.remove()"></div>
+        <div class="gallery-thumbs">
+          <div class="media active" data-src="https://siriusascent.co.za/images/BMW_M3.jpg"><span class="ph">1</span><img src="https://siriusascent.co.za/images/BMW_M3.jpg" alt="" onerror="this.remove()"></div>
+          <div class="media" data-src="https://siriusascent.co.za/images/BMW-320i.jpeg"><span class="ph">2</span><img src="https://siriusascent.co.za/images/BMW-320i.jpeg" alt="" onerror="this.remove()"></div>
+          <div class="media" data-src="https://siriusascent.co.za/images/Audi-S5.png"><span class="ph">3</span><img src="https://siriusascent.co.za/images/Audi-S5.png" alt="" onerror="this.remove()"></div>
+          <div class="media" data-src="https://siriusascent.co.za/images/Mercedes_Benz_2.jpg"><span class="ph">4</span><img src="https://siriusascent.co.za/images/Mercedes_Benz_2.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+      </div>
+      <div class="detail-panel reveal" data-delay="1">
+        <h2>BMW M3 Competition</h2>
+        <div class="price-row"><span class="p">R1,150,000</span><span class="fin">finance from <b>R19,800</b> p/m*</span></div>
+        <div class="spec-table">
+          <div><small>Year</small><b>2021</b></div>
+          <div><small>Mileage</small><b>28,400 km</b></div>
+          <div><small>Transmission</small><b>8-speed Auto</b></div>
+          <div><small>Fuel</small><b>Petrol</b></div>
+          <div><small>Engine</small><b>3.0L Twin-Turbo</b></div>
+          <div><small>Power</small><b>375 kW</b></div>
+        </div>
+        <ul class="feat-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Full service history</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Carbon bucket seats</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Harman Kardon audio</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>M Drive Professional</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Heads-up display</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Adaptive M suspension</li>
+        </ul>
+        <div class="dealer-card">
+          <div class="dm">SA</div>
+          <div><b>Supreme Auto</b><small>Pretoria North · Premium dealership</small></div>
+        </div>
+        <div class="detail-actions">
+          <a href="#contact" class="btn btn-primary">Enquire Now</a>
+          <a href="#" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.1-.5 0a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6 8.6c0 1.8 1.3 3.5 1.5 3.8s2.6 4 6.3 5.3c2.3.8 2.4.5 2.9.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINANCE ===================== -->
+<section class="section" id="finance">
+  <div class="wrap">
+    <div class="finance-grid">
+      <div class="reveal">
+        <span class="eyebrow">Vehicle Finance</span>
+        <h2 style="font-family:var(--display);font-size:clamp(26px,3.6vw,40px);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin:16px 0 18px">Drive away sooner, with finance made simple.</h2>
+        <p style="color:var(--muted);font-size:16px">We partner with leading banks to secure competitive rates — and handle the admin so you can focus on choosing the right car.</p>
+        <ul class="finance-benefits">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Competitive rates across multiple lenders</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Fast pre-approval, often same day</li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Trade-in value applied to your deposit</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Apply for Finance
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="finance-steps reveal" data-delay="1">
+        <div class="fstep"><span class="num">1</span><div><h4>Choose your vehicle</h4><p>Pick from our floor or let us source the exact car you want.</p></div></div>
+        <div class="fstep"><span class="num">2</span><div><h4>Submit your details</h4><p>A quick application — we take it to the banks on your behalf.</p></div></div>
+        <div class="fstep"><span class="num">3</span><div><h4>Get approved</h4><p>We compare offers and bring you the best available rate.</p></div></div>
+        <div class="fstep"><span class="num">4</span><div><h4>Drive away</h4><p>Sign, collect, and enjoy — with aftercare you can count on.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TESTIMONIALS ===================== -->
+<section class="section why" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What our customers say.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi reveal">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <p>"The whole process was honest from start to finish. No pressure, just straight answers — and the car was exactly as described. Wouldn't buy anywhere else."</p>
+        <div class="testi-who"><div class="testi-av">JM</div><div><b>Johan M.</b><small>Bought a BMW M3</small></div></div>
+      </div>
+      <div class="testi reveal" data-delay="1">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <p>"They sorted my finance in a day when two other dealers couldn't. Genuinely went out of their way. The Velar is everything I hoped for."</p>
+        <div class="testi-who"><div class="testi-av">TN</div><div><b>Thandi N.</b><small>Bought a Range Rover Velar</small></div></div>
+      </div>
+      <div class="testi reveal" data-delay="2">
+        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
+        <p>"Second car I've bought from Supreme Auto. They look after you long after you've paid — that's why I keep coming back and sending friends."</p>
+        <div class="testi-who"><div class="testi-av">RP</div><div><b>Riaan P.</b><small>Repeat customer</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Visit us, or send an enquiry.</h2>
+      <p>Tell us which vehicle you're interested in and we'll come back to you quickly.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="ci"><div class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div><div><small>Phone</small><b>012 XXX XXXX</b></div></div>
+        <div class="ci"><div class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></div><div><small>Email</small><b>hello@supremeauto.co.za</b></div></div>
+        <div class="ci"><div class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><small>Address</small><b>Pretoria North, Gauteng</b></div></div>
+        <div class="ci"><div class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><small>Business hours</small><b>Mon–Fri 8–17 · Sat 8–13</b></div></div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12a4 4 0 1 0 4 4V4c.5 2 2 3.5 4 4"/></svg></a>
+        </div>
+      </div>
+      <form class="form reveal" data-delay="1" id="enquiryForm">
+        <div class="form-row">
+          <div class="field"><label for="n">Name</label><input id="n" type="text" placeholder="Your full name" required></div>
+          <div class="field"><label for="ph">Phone</label><input id="ph" type="tel" placeholder="082 000 0000" required></div>
+        </div>
+        <div class="field"><label for="em">Email</label><input id="em" type="email" placeholder="you@email.com" required></div>
+        <div class="field"><label for="veh">Vehicle interested in</label>
+          <select id="veh"><option>Select a vehicle…</option><option>BMW M3 Competition</option><option>Audi S5 Sportback</option><option>Range Rover Velar</option><option>Mercedes-Benz S-Class</option><option>Other / not sure yet</option></select></div>
+        <div class="field"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us what you're looking for…"></textarea></div>
+        <button type="submit" class="btn btn-primary">Send Enquiry
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4z"/></svg></button>
+        <div class="form-ok" id="formOk"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Thanks — we'll be in touch shortly.</div>
+      </form>
+    </div>
+    <div class="map media reveal">
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Google Maps · Pretoria North</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#home" class="logo"><span class="logo-mark"><span>SA</span></span><b>SUPREME</b> <i>AUTO</i></a>
+        <p>Premium vehicles, transparent pricing and finance assistance in Pretoria North.</p>
+      </div>
+      <div><h5>Explore</h5><ul><li><a href="#about">About</a></li><li><a href="#inventory">Inventory</a></li><li><a href="#finance">Finance</a></li><li><a href="#why">Why Choose Us</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li><li><a href="#services">Services</a></li></ul></div>
+      <div><h5>Visit</h5><ul><li><a href="#contact">Pretoria North</a></li><li><a href="#contact">012 XXX XXXX</a></li><li><a href="#contact">Mon–Sat</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Supreme Auto · Pretoria North, South Africa</p>
+      <div class="legal"><a href="#">Privacy Policy</a><a href="#">Terms &amp; Conditions</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
