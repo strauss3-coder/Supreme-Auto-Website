@@ -29,7 +29,7 @@
   .inventory-grid{grid-template-columns:repeat(2,1fr)}
   .filter-bar{grid-template-columns:repeat(4,1fr);}
   .filter-bar .btn{grid-column:1/-1}
-  .hero-trust{grid-template-columns:repeat(2,1fr);max-width:520px}
+  .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr));max-width:520px}
 }
 @media(max-width:900px){
   .nav-links{display:none}.burger{display:flex}
@@ -47,7 +47,7 @@
   .form-row{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr 1fr}
   .hero-actions{flex-direction:column}.hero-actions .btn-hero{width:100%;justify-content:center}
-  .hero-trust{grid-template-columns:1fr}
+  .hero-trust{grid-template-columns:minmax(0,1fr)}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
