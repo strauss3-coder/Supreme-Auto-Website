@@ -105,7 +105,11 @@
 .detail{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
 .detail-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:start}
 .gallery-main{aspect-ratio:16/10;border-radius:var(--r-lg);border:1px solid var(--border);
-  box-shadow:var(--shadow)}
+  box-shadow:var(--shadow);margin-bottom:14px}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(auto-fit,minmax(70px,1fr));gap:12px}
+.gallery-thumbs .media{aspect-ratio:16/11;border-radius:12px;border:1px solid var(--border);cursor:pointer;
+  transition:.3s;opacity:.62}
+.gallery-thumbs .media:hover,.gallery-thumbs .media.active{opacity:1;border-color:var(--gold)}
 .detail-panel h2{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.02em}
 .detail-panel .price-row{display:flex;align-items:baseline;gap:16px;margin:18px 0 24px;
   padding-bottom:24px;border-bottom:1px solid var(--border)}

@@ -1,9 +1,13 @@
 /* ========== vehicle detail preview: renders the selected vehicle ==========
    Exposes window.renderVehicleDetail(vehicle), called by inventory.js
    when a "View Details" card link is clicked. Shows the featured (or
-   first) vehicle by default so the section is never empty. */
+   first) vehicle by default so the section is never empty. Renders a
+   thumbnail per photo in vehicle.images -- clicking one swaps the main
+   image, same gallery interaction the static mockup used to have, but
+   now driven by each vehicle's real photo set instead of a fixed list. */
 (function(){
   var img=document.getElementById('detailImage');
+  var thumbs=document.getElementById('galleryThumbs');
   var name=document.getElementById('detailName');
   var price=document.getElementById('detailPrice');
   var financeRow=document.getElementById('detailFinanceRow');
@@ -20,10 +24,30 @@
   function formatPrice(n){return n==null?'POA':'R'+n.toLocaleString('en-ZA');}
   function formatKm(n){return n==null?'—':n.toLocaleString('en-ZA')+' km';}
 
+  function renderThumbs(images,label){
+    if(!thumbs)return;
+    thumbs.innerHTML=images.map(function(src,i){
+      return '<div class="media'+(i===0?' active':'')+'" data-src="'+src+'">'+
+        '<span class="ph">'+(i+1)+'</span><img src="'+src+'" alt="'+label+' photo '+(i+1)+'" onerror="this.remove()"></div>';
+    }).join('');
+  }
+
+  if(thumbs){
+    thumbs.addEventListener('click',function(e){
+      var tile=e.target.closest('[data-src]');
+      if(!tile)return;
+      img.src=tile.getAttribute('data-src');
+      thumbs.querySelectorAll('.media').forEach(function(t){t.classList.remove('active');});
+      tile.classList.add('active');
+    });
+  }
+
   window.renderVehicleDetail=function(v){
-    img.src=v.image;
-    img.alt=v.make+' '+v.model;
-    name.textContent=v.make+' '+v.model;
+    var label=v.make+' '+v.model;
+    img.src=v.images[0];
+    img.alt=label;
+    renderThumbs(v.images,label);
+    name.textContent=label;
     price.textContent=formatPrice(v.price);
     if(v.financePerMonth){
       finance.textContent=formatPrice(v.financePerMonth);

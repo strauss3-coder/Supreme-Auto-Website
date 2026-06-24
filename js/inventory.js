@@ -75,7 +75,7 @@
     return (
       '<article class="car">'+
         '<div class="car-media media"><span class="ph">'+v.make+' '+v.model+'</span>'+tag+
-          '<img src="'+v.image+'" alt="'+v.make+' '+v.model+'" loading="lazy" onerror="this.remove()"></div>'+
+          '<img src="'+v.images[0]+'" alt="'+v.make+' '+v.model+'" loading="lazy" onerror="this.remove()"></div>'+
         '<div class="car-body">'+
           '<h3>'+v.make+' '+v.model+'</h3>'+
           '<div class="car-spec">'+
