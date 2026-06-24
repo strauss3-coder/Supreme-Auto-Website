@@ -257,6 +257,21 @@
 .testi-readmore:hover{text-decoration:underline}
 .testi-readmore:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
+.testi-cta{display:flex;flex-direction:column;align-items:center;gap:18px;
+  margin-top:56px;padding-top:8px;text-align:center}
+.testi-cta p{color:var(--muted);font-size:14.5px;margin:0}
+.testi-cta-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);
+  font-weight:500;font-size:14.5px;color:var(--text);padding:14px 28px;border-radius:20px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(10px);
+  box-shadow:0 0 0 0 var(--red-soft);
+  transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease),
+    box-shadow .35s var(--ease)}
+.testi-cta-btn svg{width:18px;height:18px;flex:0 0 auto;transition:transform .35s var(--ease)}
+.testi-cta-btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.09);
+  border-color:#fff;box-shadow:0 16px 36px -16px var(--red-soft),0 0 26px -4px var(--red-soft)}
+.testi-cta-btn:hover svg{transform:scale(1.1)}
+.testi-cta-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
 /* =========================================================
    CONTACT
    ========================================================= */
