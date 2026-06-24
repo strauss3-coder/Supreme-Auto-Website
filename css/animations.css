@@ -38,7 +38,6 @@
      as a duplicated button rather than a deliberate second action */
   .nav-cta .btn-ghost,.nav-cta .btn-primary{display:none}
   .about-grid,.finance-grid,.detail-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
-  .about-media{aspect-ratio:16/10}
   .section{padding:78px 0}
   .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr));max-width:520px}
 }
