@@ -156,7 +156,7 @@
 /* =========================================================
    FINANCE
    ========================================================= */
-.finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
 .finance-steps{display:grid;gap:14px;margin-top:8px}
 .fstep{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;
   overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);

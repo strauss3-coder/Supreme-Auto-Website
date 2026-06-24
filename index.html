@@ -8,9 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=22">
-<link rel="stylesheet" href="css/components.css?v=22">
-<link rel="stylesheet" href="css/animations.css?v=22">
+<link rel="stylesheet" href="css/style.css?v=23">
+<link rel="stylesheet" href="css/components.css?v=23">
+<link rel="stylesheet" href="css/animations.css?v=23">
+<link rel="stylesheet" href="css/finance-wizard.css?v=23">
 </head>
 <body>
 
@@ -266,8 +267,8 @@
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Fast pre-approval, often same day</li>
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></span>Trade-in value applied to your deposit</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Apply for Finance
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <button type="button" id="applyFinanceBtn" class="btn btn-primary">Apply for Finance
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
       <div class="finance-steps">
         <div class="fstep reveal">
@@ -302,6 +303,146 @@
     </div>
   </div>
 </section>
+
+<!-- ===================== FINANCE APPLICATION WIZARD ===================== -->
+<div class="fw-overlay" id="fwOverlay" hidden>
+  <div class="fw-modal" id="fwModal" role="dialog" aria-modal="true" aria-labelledby="fwTitle">
+    <header class="fw-head">
+      <div>
+        <h3 id="fwTitle">Finance Application</h3>
+        <p class="fw-step-label" id="fwStepLabel">Step 1 of 5 · Personal Details</p>
+      </div>
+      <div class="fw-head-actions">
+        <button type="button" class="fw-start-over" id="fwStartOver">Start Over</button>
+        <button type="button" class="fw-close" id="fwClose" aria-label="Close finance application">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="fw-progress" aria-hidden="true">
+      <div class="fw-progress-step is-active" data-step="1"><span class="fw-dot">1</span><small>Personal</small></div>
+      <div class="fw-progress-line"></div>
+      <div class="fw-progress-step" data-step="2"><span class="fw-dot">2</span><small>Employment</small></div>
+      <div class="fw-progress-line"></div>
+      <div class="fw-progress-step" data-step="3"><span class="fw-dot">3</span><small>Vehicle</small></div>
+      <div class="fw-progress-line"></div>
+      <div class="fw-progress-step" data-step="4"><span class="fw-dot">4</span><small>Review</small></div>
+      <div class="fw-progress-line"></div>
+      <div class="fw-progress-step" data-step="5"><span class="fw-dot">5</span><small>Submit</small></div>
+    </div>
+
+    <div class="fw-body">
+      <form class="fw-steps" id="fwSteps" novalidate>
+
+        <!-- Step 1: Personal Details -->
+        <div class="fw-step" data-step="1">
+          <div class="fw-row">
+            <div class="field"><label for="fwFirstName">First Name</label><input id="fwFirstName" type="text"><small class="field-error"></small></div>
+            <div class="field"><label for="fwLastName">Last Name</label><input id="fwLastName" type="text"><small class="field-error"></small></div>
+          </div>
+          <div class="fw-row">
+            <div class="field"><label for="fwPhone">Phone Number</label><input id="fwPhone" type="tel"><small class="field-error"></small></div>
+            <div class="field"><label for="fwEmail">Email Address</label><input id="fwEmail" type="email"><small class="field-error"></small></div>
+          </div>
+          <div class="field"><label for="fwIdNumber">ID Number</label><input id="fwIdNumber" type="text" maxlength="13"><small class="field-error"></small></div>
+          <div class="field"><label for="fwAddress">Residential Address</label><input id="fwAddress" type="text"><small class="field-error"></small></div>
+          <div class="fw-row fw-row-3">
+            <div class="field"><label for="fwCity">City</label><input id="fwCity" type="text"><small class="field-error"></small></div>
+            <div class="field"><label for="fwProvince">Province</label>
+              <select id="fwProvince">
+                <option value="">Select…</option>
+                <option>Gauteng</option><option>Western Cape</option><option>Eastern Cape</option>
+                <option>KwaZulu-Natal</option><option>Free State</option><option>Limpopo</option>
+                <option>Mpumalanga</option><option>North West</option><option>Northern Cape</option>
+              </select>
+              <small class="field-error"></small>
+            </div>
+            <div class="field"><label for="fwPostalCode">Postal Code</label><input id="fwPostalCode" type="text" maxlength="4"><small class="field-error"></small></div>
+          </div>
+        </div>
+
+        <!-- Step 2: Employment & Income -->
+        <div class="fw-step" data-step="2">
+          <div class="field"><label for="fwEmploymentStatus">Employment Status</label>
+            <select id="fwEmploymentStatus">
+              <option value="">Select…</option>
+              <option>Employed (Permanent)</option><option>Employed (Contract)</option>
+              <option>Self-Employed</option><option>Unemployed</option><option>Retired</option><option>Student</option>
+            </select>
+            <small class="field-error"></small>
+          </div>
+          <div class="fw-row">
+            <div class="field"><label for="fwEmployerName">Employer Name</label><input id="fwEmployerName" type="text"><small class="field-error"></small></div>
+            <div class="field"><label for="fwOccupation">Occupation</label><input id="fwOccupation" type="text"><small class="field-error"></small></div>
+          </div>
+          <div class="fw-row">
+            <div class="field"><label for="fwGrossIncome">Monthly Gross Income</label><input id="fwGrossIncome" type="text" placeholder="R"><small class="field-error"></small></div>
+            <div class="field"><label for="fwNetIncome">Monthly Net Income</label><input id="fwNetIncome" type="text" placeholder="R"><small class="field-error"></small></div>
+          </div>
+          <div class="field"><label for="fwEmploymentDuration">Employment Duration</label><input id="fwEmploymentDuration" type="text" placeholder="e.g. 3 years"><small class="field-error"></small></div>
+          <div class="field"><label for="fwOtherIncome">Other Income <span class="fw-optional">(optional)</span></label><input id="fwOtherIncome" type="text" placeholder="R"></div>
+        </div>
+
+        <!-- Step 3: Vehicle & Finance -->
+        <div class="fw-step" data-step="3">
+          <div class="field"><label for="fwVehicle">Vehicle of Interest</label>
+            <select id="fwVehicle"><option value="">Select a vehicle…</option></select>
+            <small class="field-error"></small>
+          </div>
+          <div class="fw-row">
+            <div class="field"><label for="fwDeposit">Desired Deposit</label><input id="fwDeposit" type="text" placeholder="R"><small class="field-error"></small></div>
+            <div class="field"><label for="fwLoanTerm">Preferred Loan Term</label>
+              <select id="fwLoanTerm">
+                <option value="">Select…</option>
+                <option>12 months</option><option>24 months</option><option>36 months</option>
+                <option>48 months</option><option>60 months</option><option>72 months</option>
+              </select>
+              <small class="field-error"></small>
+            </div>
+          </div>
+          <div class="field">
+            <label>Trade-In</label>
+            <div class="fw-radio-group">
+              <label class="fw-radio"><input type="radio" name="fwTradeIn" value="Yes"> Yes</label>
+              <label class="fw-radio"><input type="radio" name="fwTradeIn" value="No"> No</label>
+            </div>
+            <small class="field-error" id="fwTradeInError"></small>
+          </div>
+          <div class="field" id="fwTradeInDetailsField" hidden>
+            <label for="fwTradeInDetails">Trade-In Details</label>
+            <textarea id="fwTradeInDetails" placeholder="Make, model, year, mileage, condition…"></textarea>
+            <small class="field-error"></small>
+          </div>
+          <div class="field"><label for="fwNotes">Additional Notes <span class="fw-optional">(optional)</span></label><textarea id="fwNotes" placeholder="Anything else we should know…"></textarea></div>
+        </div>
+
+        <!-- Step 4: Review -->
+        <div class="fw-step" data-step="4">
+          <div class="fw-review" id="fwReview"></div>
+        </div>
+
+        <!-- Step 5: Send Application -->
+        <div class="fw-step" data-step="5">
+          <div class="fw-email-preview" id="fwEmailPreview"></div>
+          <div class="fw-confirm" id="fwConfirm">
+            <p>Ready to send your finance application?</p>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <footer class="fw-foot">
+      <button type="button" class="btn btn-ghost" id="fwCancel">Cancel</button>
+      <div class="fw-foot-right">
+        <button type="button" class="btn btn-ghost" id="fwBack" hidden>Back</button>
+        <button type="button" class="btn btn-primary" id="fwNext">Next</button>
+        <button type="button" class="btn btn-primary" id="fwSend" hidden>Send Application</button>
+      </div>
+    </footer>
+  </div>
+</div>
 
 <!-- ===================== TESTIMONIALS ===================== -->
 <section class="section why" id="testimonials">
@@ -551,14 +692,15 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=22"></script>
-<script src="js/vehicles-data.js?v=22"></script>
-<script src="js/contact-form.js?v=22"></script>
-<script src="js/detail.js?v=22"></script>
-<script src="js/inventory.js?v=22"></script>
-<script src="js/animations.js?v=22"></script>
-<script src="js/counters.js?v=22"></script>
-<script src="js/testimonials.js?v=22"></script>
-<script src="js/hero.js?v=22"></script>
+<script src="js/script.js?v=23"></script>
+<script src="js/vehicles-data.js?v=23"></script>
+<script src="js/finance-wizard.js?v=23"></script>
+<script src="js/contact-form.js?v=23"></script>
+<script src="js/detail.js?v=23"></script>
+<script src="js/inventory.js?v=23"></script>
+<script src="js/animations.js?v=23"></script>
+<script src="js/counters.js?v=23"></script>
+<script src="js/testimonials.js?v=23"></script>
+<script src="js/hero.js?v=23"></script>
 </body>
 </html>

@@ -9,13 +9,18 @@ Marketing site for Supreme Auto, a premium vehicle dealership in Pretoria North.
 ├── index.html              Entry point
 ├── css/
 │   ├── style.css           Design tokens, reset, base typography, buttons, nav, hero
-│   ├── components.css      Page-section components (about, services, inventory, detail, finance, testimonials, contact, footer)
-│   └── animations.css      Scroll-reveal transitions, keyframes, responsive breakpoints, reduced-motion
+│   ├── components.css      Page-section components (about, services, inventory, detail, finance, financing partners, testimonials, contact, footer)
+│   ├── animations.css      Scroll-reveal transitions, keyframes, responsive breakpoints, reduced-motion
+│   └── finance-wizard.css  Finance Application modal (overlay, progress stepper, form/review/email-preview layout)
 ├── js/
-│   ├── script.js           Nav scroll state, mobile menu, enquiry form
+│   ├── script.js           Nav scroll state, mobile menu, fresh-load scroll-to-top
 │   ├── vehicles-data.js     Inventory data (single source of truth) + getVehicles()
 │   ├── detail.js            Renders the selected vehicle into the Vehicle Preview section
 │   ├── inventory.js         Renders cards from data, filtering, dynamic Model dropdown, empty state
+│   ├── contact-form.js      Enquiry form: searchable vehicle combobox, validation, WhatsApp send
+│   ├── finance-wizard.js    5-step Finance Application modal: validation, review, mailto send, draft persistence
+│   ├── counters.js          Stat number count-up on scroll-into-view
+│   ├── testimonials.js      Testimonial carousel + "Read more" toggle
 │   ├── animations.js       IntersectionObserver scroll-reveal
 │   └── hero.js              Hero scroll parallax + scroll-indicator fade
 ├── assets/
