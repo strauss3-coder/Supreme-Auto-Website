@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=16">
-<link rel="stylesheet" href="css/components.css?v=16">
-<link rel="stylesheet" href="css/animations.css?v=16">
+<link rel="stylesheet" href="css/style.css?v=17">
+<link rel="stylesheet" href="css/components.css?v=17">
+<link rel="stylesheet" href="css/animations.css?v=17">
 </head>
 <body>
 
@@ -168,7 +168,7 @@
           <span class="ph">Our Team</span>
           <img src="assets/images/team-photo.jpg" alt="The Supreme Auto team, Pretoria North" onerror="this.remove()">
         </div>
-        <div class="badge"><b>3.9★</b><small>Rated by our customers</small></div>
+        <div class="badge"><b>4.0★</b><small>Rated by our customers</small></div>
       </div>
       <div class="about-copy reveal" data-delay="1">
         <span class="eyebrow">About Supreme Auto</span>
@@ -302,24 +302,100 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Testimonials</span>
-      <h2>What our customers say.</h2>
+      <h2>Trusted by Drivers Across Pretoria</h2>
+      <p>Real experiences from customers who chose Supreme Auto for their next vehicle.</p>
     </div>
-    <div class="testi-grid">
-      <div class="testi reveal">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
-        <p>"The whole process was honest from start to finish. No pressure, just straight answers — and the car was exactly as described. Wouldn't buy anywhere else."</p>
-        <div class="testi-who"><div class="testi-av">JM</div><div><b>Johan M.</b><small>Bought a BMW M3</small></div></div>
+
+    <div class="trust-bar reveal" data-delay="1">
+      <div class="trust-bar-item"><b>4.0★</b><small>Google Rating</small></div>
+      <div class="trust-bar-item"><b>51</b><small>Customer Reviews</small></div>
+      <div class="trust-bar-item"><b>Pretoria North</b><small>Proudly Serving</small></div>
+      <div class="trust-bar-item"><b>4</b><small>Financing Partners</small></div>
+    </div>
+
+    <div class="testi-carousel reveal" data-delay="2">
+      <button class="testi-nav testi-nav--prev" id="testiPrev" type="button" aria-label="Previous reviews">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="testi-viewport">
+        <div class="testi-track" id="testiTrack">
+
+          <article class="testi">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"Staff is exactly helpful and they have a excellent range of cars in stock ."</p>
+            <div class="testi-who"><div class="testi-av">PV</div><div><b>Pieter Vanheerden</b><small>Local Guide · 5 years ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"Get your car at them and u get a nice drive"</p>
+            <div class="testi-who"><div class="testi-av">HN</div><div><b>Hardus Nepgen</b><small>Local Guide · 5 years ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi testi--compact">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <div class="testi-who"><div class="testi-av">RM</div><div><b>Roberto Mc Kay</b><small>1 review · an hour ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi testi--compact">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"Brilliant"</p>
+            <div class="testi-who"><div class="testi-av">nm</div><div><b>nkululeko malatjie</b><small>1 review · 4 years ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"These guys are amazing and very professional. I got a VW Polo GTI manual from them in March 2026. I want to send a special thanks and rate them 5/5 for the service received from John, Des and Chris…"</p>
+            <div class="testi-who"><div class="testi-av">SB</div><div><b>Sanele Buthelezi</b><small>2 reviews · 2 months ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg class="is-empty" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"I can say with all honesty that dealing with Supreme Auto 1 has been an extreme joy, beyond what I expected. Buying a vehicle in Gauteng and courier the vehicle to Cape Town was a big concern but the help of the Supreme Auto 1 team has made my purchasing journey very easy and to my satisfaction…"</p>
+            <div class="testi-who"><div class="testi-av">AM</div><div><b>Aurilo Matjan</b><small>7 reviews · a year ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"Bought a car recently from Gavin and Johnathan,,, excellent service received.. Highly recommend,,,they did all what they promised and more. Thanks"</p>
+            <div class="testi-who"><div class="testi-av">GR</div><div><b>Giuseppe Rivoli</b><small>Local Guide · 3 years ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+          <article class="testi">
+            <div class="stars">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
+            </div>
+            <p>"Well I bought a Mahindra single cab from the lady and guy. That works there. I arrived early Saturday morning. While I waited for my wife to fill the paperwork. They did a full service. Oil filters everything. When I saw the car it looked exactly like the pictures…"</p>
+            <div class="testi-who"><div class="testi-av">CS</div><div><b>cleaning specialist</b><small>Local Guide · 2 years ago</small></div></div>
+            <span class="testi-verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg>Verified Google Review</span>
+          </article>
+
+        </div>
       </div>
-      <div class="testi reveal" data-delay="1">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
-        <p>"They sorted my finance in a day when two other dealers couldn't. Genuinely went out of their way. The Velar is everything I hoped for."</p>
-        <div class="testi-who"><div class="testi-av">TN</div><div><b>Thandi N.</b><small>Bought a Range Rover Velar</small></div></div>
-      </div>
-      <div class="testi reveal" data-delay="2">
-        <div class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.9 21l1.2-6.8-5-4.9 6.9-1z"/></svg></div>
-        <p>"Second car I've bought from Supreme Auto. They look after you long after you've paid — that's why I keep coming back and sending friends."</p>
-        <div class="testi-who"><div class="testi-av">RP</div><div><b>Riaan P.</b><small>Repeat customer</small></div></div>
-      </div>
+      <button class="testi-nav testi-nav--next" id="testiNext" type="button" aria-label="Next reviews">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -383,12 +459,13 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=16"></script>
-<script src="js/vehicles-data.js?v=16"></script>
-<script src="js/detail.js?v=16"></script>
-<script src="js/inventory.js?v=16"></script>
-<script src="js/animations.js?v=16"></script>
-<script src="js/counters.js?v=16"></script>
-<script src="js/hero.js?v=16"></script>
+<script src="js/script.js?v=17"></script>
+<script src="js/vehicles-data.js?v=17"></script>
+<script src="js/detail.js?v=17"></script>
+<script src="js/inventory.js?v=17"></script>
+<script src="js/animations.js?v=17"></script>
+<script src="js/counters.js?v=17"></script>
+<script src="js/testimonials.js?v=17"></script>
+<script src="js/hero.js?v=17"></script>
 </body>
 </html>
