@@ -41,10 +41,15 @@
 .svc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:30px;
   backdrop-filter:blur(8px);transition:.4s var(--ease);position:relative;overflow:hidden}
 .svc:hover{transform:translateY(-5px);border-color:var(--border-2);box-shadow:var(--shadow)}
-.svc-ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;
-  background:linear-gradient(135deg,rgba(217,164,65,.14),rgba(217,164,65,.03));
-  border:1px solid var(--gold-soft);transition:.4s}
-.svc:hover .svc-ic{box-shadow:0 0 22px -6px var(--gold-soft)}
+.svc-glow{position:absolute;top:-25%;left:12%;width:130px;height:130px;border-radius:50%;
+  background:var(--gold);filter:blur(30px);opacity:.18;pointer-events:none;transition:opacity .4s var(--ease)}
+.svc:hover .svc-glow{opacity:.32}
+.svc-ic{position:relative;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  margin-bottom:20px;background:rgba(255,255,255,.05);border:1px solid var(--gold-soft);
+  backdrop-filter:blur(8px);opacity:0;transform:scale(.8);
+  transition:transform .5s var(--ease) .1s,opacity .5s var(--ease) .1s,box-shadow .4s var(--ease)}
+.reveal.in .svc-ic{opacity:1;transform:scale(1)}
+.svc:hover .svc-ic{transform:scale(1.06) rotate(-4deg);box-shadow:0 0 22px -6px var(--gold-soft)}
 .svc-ic svg{width:24px;height:24px;color:var(--gold)}
 .svc h3{font-size:19px;font-weight:600;margin-bottom:8px}
 .svc p{color:var(--muted);font-size:14.5px}
