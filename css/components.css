@@ -153,18 +153,35 @@
    ========================================================= */
 .finance-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .finance-steps{display:grid;gap:14px;margin-top:8px}
-.fstep{display:flex;gap:18px;background:var(--surface);border:1px solid var(--border);
-  border-radius:var(--r);padding:20px 22px;transition:.4s var(--ease)}
-.fstep:hover{border-color:var(--border-2);transform:translateX(5px)}
-.fstep .num{font-family:var(--display);font-size:14px;font-weight:600;color:#0B0B0B;width:34px;height:34px;
-  border-radius:10px;background:var(--gold);display:grid;place-items:center;flex:0 0 auto}
-.fstep h4{font-size:16px;font-weight:600;margin-bottom:4px}
-.fstep p{color:var(--muted);font-size:14px}
+.fstep{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:10px;
+  overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);
+  padding:20px 22px 22px;transition:transform .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.fstep:hover{border-color:var(--border-2);transform:translateY(-4px);box-shadow:var(--shadow)}
+.fstep .num{position:relative;font-family:var(--display);font-size:12px;font-weight:600;
+  color:var(--gold);letter-spacing:.12em;opacity:.65;align-self:flex-end}
+.fstep-glow{position:absolute;top:-30%;left:14%;width:140px;height:140px;border-radius:50%;
+  background:var(--red);filter:blur(34px);opacity:.22;pointer-events:none;transition:opacity .4s var(--ease)}
+.fstep:hover .fstep-glow{opacity:.4}
+.fstep-ic{position:relative;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.05);border:1px solid var(--red-soft);backdrop-filter:blur(8px);
+  opacity:0;transform:scale(.8);
+  transition:transform .5s var(--ease) .1s,opacity .5s var(--ease) .1s,box-shadow .4s var(--ease)}
+.reveal.in .fstep-ic{opacity:1;transform:scale(1)}
+.fstep:hover .fstep-ic{transform:scale(1.06)}
+.fstep-ic svg{width:24px;height:24px;color:var(--red)}
+.fstep h4{position:relative;font-size:16px;font-weight:600;margin-bottom:2px}
+.fstep p{position:relative;color:var(--muted);font-size:14px}
 .finance-benefits{list-style:none;display:grid;gap:14px;margin:24px 0}
-.finance-benefits li{display:flex;align-items:flex-start;gap:13px;font-size:15px}
+.finance-benefits li{display:flex;align-items:flex-start;gap:13px;font-size:15px;
+  opacity:0;transform:translateY(10px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.reveal.in .finance-benefits li{opacity:1;transform:none}
+.finance-benefits li:nth-child(1){transition-delay:.05s}
+.finance-benefits li:nth-child(2){transition-delay:.15s}
+.finance-benefits li:nth-child(3){transition-delay:.25s}
 .finance-benefits .ck{width:26px;height:26px;border-radius:8px;flex:0 0 auto;display:grid;place-items:center;
-  background:rgba(225,29,42,.12);border:1px solid var(--red-soft);margin-top:1px}
-.finance-benefits .ck svg{width:14px;height:14px;color:var(--red)}
+  background:rgba(22,163,74,.12);border:1px solid var(--green-soft);margin-top:1px;
+  box-shadow:0 0 12px -2px var(--green-soft)}
+.finance-benefits .ck svg{width:14px;height:14px;color:var(--green)}
 
 /* =========================================================
    TESTIMONIALS
