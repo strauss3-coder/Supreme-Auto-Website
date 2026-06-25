@@ -29,10 +29,10 @@
   function formatPrice(n){return n==null?'POA':'R'+n.toLocaleString('en-ZA');}
   function formatKm(n){return n==null?'—':n.toLocaleString('en-ZA')+' km';}
 
-  function renderThumbs(images,label){
+  function renderThumbs(images,label,activeIndex){
     if(!thumbs)return;
     thumbs.innerHTML=images.map(function(src,i){
-      return '<div class="media'+(i===0?' active':'')+'" data-src="'+src+'">'+
+      return '<div class="media'+(i===activeIndex?' active':'')+'" data-src="'+src+'">'+
         '<span class="ph">'+(i+1)+'</span><img src="'+src+'" alt="'+label+' photo '+(i+1)+'" loading="lazy" onerror="this.remove()"></div>';
     }).join('');
   }
@@ -47,12 +47,13 @@
     });
   }
 
-  window.renderVehicleDetail=function(v){
+  window.renderVehicleDetail=function(v,startIndex){
     currentVehicle=v;
     var label=v.make+' '+v.model;
-    img.src=v.images[0];
+    var index=(startIndex>=0&&startIndex<v.images.length)?startIndex:0;
+    img.src=v.images[index];
     img.alt=label;
-    renderThumbs(v.images,label);
+    renderThumbs(v.images,label,index);
     name.textContent=label;
     price.textContent=formatPrice(v.price);
     year.textContent=v.year;

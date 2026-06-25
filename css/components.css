@@ -112,6 +112,44 @@
   background:rgba(11,11,11,.72);backdrop-filter:blur(6px);border:1px solid var(--gold-soft);color:var(--gold)}
 .car:hover .car-media img{transform:scale(1.06)}
 .car-media img{transition:transform .8s var(--ease)}
+
+/* ---- card image carousel ----
+   Same "only the active slide is ever asked to do anything" approach
+   as the finance wizard's step panels: every slide sits in one flex
+   row sized to 100% each, and the row itself is the only thing that
+   moves (translateX via --idx), so there's never a layout-driven
+   reflow -- just one transform animating on the compositor. */
+.car-photo-badge{position:absolute;top:13px;right:13px;z-index:3;display:inline-flex;align-items:center;gap:5px;
+  font-family:var(--display);font-size:11px;font-weight:500;letter-spacing:.02em;padding:6px 10px;border-radius:8px;
+  background:rgba(11,11,11,.62);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.14);color:#fff;
+  pointer-events:none}
+.car-photo-badge svg{width:12px;height:12px;flex:0 0 auto}
+
+.car-track{position:absolute;inset:0;z-index:2;display:flex;height:100%;
+  transform:translateX(calc(var(--idx,0)*-100%));transition:transform .5s var(--ease);will-change:transform}
+.car-slide{flex:0 0 100%;width:100%;height:100%;position:relative}
+
+.car-nav{position:absolute;top:50%;z-index:4;width:32px;height:32px;border-radius:50%;
+  display:grid;place-items:center;background:rgba(11,11,11,.55);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.18);color:#fff;cursor:pointer;
+  opacity:0;pointer-events:none;transform:translateY(-50%);
+  transition:opacity .3s var(--ease),background .3s var(--ease)}
+.car-nav svg{width:15px;height:15px}
+.car-nav--prev{left:10px}
+.car-nav--next{right:10px}
+.car-media:hover .car-nav,.car-media:focus-within .car-nav{opacity:1;pointer-events:auto}
+.car-nav:hover{background:rgba(11,11,11,.85)}
+.car-nav:focus-visible{outline:2px solid var(--gold);outline-offset:2px;opacity:1;pointer-events:auto}
+
+.car-dots{position:absolute;left:0;right:0;bottom:10px;z-index:4;display:flex;justify-content:center;gap:6px}
+.car-dot{width:6px;height:6px;padding:0;border:0;border-radius:50%;cursor:pointer;
+  background:rgba(255,255,255,.45);transition:.3s var(--ease)}
+.car-dot.is-active{width:16px;border-radius:3px;background:#fff}
+.car-dot:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media(hover:none){
+  .car-nav{opacity:.6;pointer-events:auto}
+}
 .car-body{padding:20px}
 .car-body h3{font-size:17.5px;font-weight:600;letter-spacing:-.01em}
 .car-spec{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px;margin:16px 0;
