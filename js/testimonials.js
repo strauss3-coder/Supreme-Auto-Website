@@ -66,6 +66,7 @@
     btn.addEventListener('click',function(){
       var expanded=text.classList.toggle('is-expanded');
       btn.textContent=expanded?'Read less':'Read more';
+      btn.setAttribute('aria-expanded',String(expanded));
     });
   });
 })();

@@ -12,6 +12,21 @@
    financePerMonth/financeIsEstimate are still in the data but no
    longer rendered anywhere (removed from both the inventory cards and
    the detail panel) -- kept in case finance figures come back later. */
+/* fetched once and cached -- inventory.js, detail.js, contact-form.js and
+   finance-wizard.js each call getVehicles() independently, and without
+   this the same JSON file would be requested four times on every page
+   load instead of once. */
+var VEHICLES_PROMISE=null;
 function getVehicles(){
-  return fetch('assets/vehicles.json').then(function(res){return res.json();});
+  if(!VEHICLES_PROMISE){
+    VEHICLES_PROMISE=fetch('assets/vehicles.json').then(function(res){
+      if(!res.ok)throw new Error('vehicles.json request failed: '+res.status);
+      return res.json();
+    }).catch(function(err){
+      console.error('Could not load vehicle inventory.',err);
+      VEHICLES_PROMISE=null;
+      return [];
+    });
+  }
+  return VEHICLES_PROMISE;
 }

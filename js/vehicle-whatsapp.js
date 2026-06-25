@@ -97,13 +97,7 @@
 
   function openWhatsApp(){
     var url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(buildMessage(currentVehicle));
-    var a=document.createElement('a');
-    a.href=url;
-    a.target='_blank';
-    a.rel='noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
+    window.openInNewTab(url);
   }
 
   continueBtn.addEventListener('click',function(){

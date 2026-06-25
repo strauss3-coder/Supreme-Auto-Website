@@ -13,7 +13,7 @@
 
     if(!reduceMotion&&media)media.style.transform='translateY('+(y*0.22)+'px)';
     if(content){
-      content.style.transform='translateY('+(y*0.12)+'px)';
+      if(!reduceMotion)content.style.transform='translateY('+(y*0.12)+'px)';
       content.style.opacity=String(Math.max(0,1-progress*1.15));
     }
     if(scrollCue){

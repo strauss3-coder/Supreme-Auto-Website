@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://strauss3-coder.github.io/Supreme-Auto-Website/sitemap.xml

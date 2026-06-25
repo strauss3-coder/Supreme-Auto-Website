@@ -20,3 +20,22 @@ function closeMenu(){mm.classList.remove('open');scrim.classList.remove('show');
 burger.addEventListener('click',function(){mm.classList.add('open');scrim.classList.add('show');});
 scrim.addEventListener('click',closeMenu);
 mm.querySelectorAll('a').forEach(function(a){a.addEventListener('click',closeMenu);});
+
+/* ========== shared: open a URL in a new tab safely ==========
+   window.open(url,'_blank','noopener,noreferrer') leaves a blank
+   about:blank tab behind on several browsers -- passing noopener/
+   noreferrer as window-feature tokens (rather than as a real anchor's
+   rel attribute) is non-standard and not reliably handled. Clicking a
+   real <a target="_blank" rel="noopener noreferrer"> doesn't have that
+   quirk. Shared by contact-form.js and vehicle-whatsapp.js so the
+   technique only lives in one place. Loaded first (script.js is the
+   first script tag) so it's available to every file after it. */
+window.openInNewTab=function(url){
+  var a=document.createElement('a');
+  a.href=url;
+  a.target='_blank';
+  a.rel='noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};

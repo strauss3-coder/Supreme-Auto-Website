@@ -25,6 +25,14 @@ body{
 }
 ::selection{background:var(--gold-soft);color:#0B0B0B}
 
+/* skip-link: off-screen until keyboard-focused, then drops into view
+   above everything else so Tab from the address bar doesn't force a
+   sighted-only user through the entire nav before reaching content */
+.skip-link{position:absolute;top:-60px;left:16px;z-index:200;
+  background:var(--gold);color:#0B0B0B;font-family:var(--display);font-weight:600;
+  font-size:14px;padding:12px 20px;border-radius:10px;transition:top .25s var(--ease)}
+.skip-link:focus-visible{top:16px}
+
 /* shared ambient glow layer -- fixed behind every section so depth and
    colour wash carry continuously down the page instead of resetting at
    each section boundary. Sections deliberately paint no opaque

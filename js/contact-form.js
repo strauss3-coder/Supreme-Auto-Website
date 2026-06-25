@@ -157,23 +157,6 @@
       'Thank you.';
   }
 
-  /* window.open(url,'_blank','noopener,noreferrer') leaves a blank
-     about:blank tab behind on several browsers -- passing noopener/
-     noreferrer as window-feature tokens (rather than as a real
-     anchor's rel attribute) is non-standard and not reliably handled.
-     Clicking a real <a target="_blank" rel="noopener noreferrer">
-     is the same mechanism a normal link uses, so it doesn't have
-     that quirk. */
-  function openInNewTab(url){
-    var a=document.createElement('a');
-    a.href=url;
-    a.target='_blank';
-    a.rel='noopener noreferrer';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-
   form.addEventListener('submit',function(e){
     e.preventDefault();
     if(!validate())return;
