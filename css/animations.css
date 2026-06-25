@@ -1,6 +1,10 @@
-/* reveal-on-scroll */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-.reveal.in{opacity:1;transform:none}
+/* reveal-on-scroll -- the slight blur-to-sharp settle (on top of the existing
+   fade+rise) reads as content quietly resolving into focus rather than
+   popping in, which is what makes consecutive sections feel continuous
+   rather than independently "switched on" as you reach each one. */
+.reveal{opacity:0;transform:translateY(26px);filter:blur(6px);
+  transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+.reveal.in{opacity:1;transform:none;filter:blur(0)}
 [data-delay="1"]{transition-delay:.08s}[data-delay="2"]{transition-delay:.16s}
 [data-delay="3"]{transition-delay:.24s}[data-delay="4"]{transition-delay:.32s}
 
@@ -63,7 +67,8 @@
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
+  .reveal{opacity:1;transform:none;filter:none}
+  .bg-orb{transform:none!important}
   .nav,.hero-tag,.hero-heading .line,.hero-sub,.hero-actions,.trust-card{opacity:1;transform:none}
   html{scroll-behavior:auto}
 }

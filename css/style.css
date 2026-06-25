@@ -24,6 +24,19 @@ body{
   line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 ::selection{background:var(--gold-soft);color:#0B0B0B}
+
+/* shared ambient glow layer -- fixed behind every section so depth and
+   colour wash carry continuously down the page instead of resetting at
+   each section boundary. Sections deliberately paint no opaque
+   background of their own (see components.css) so this shows through. */
+.bg-ambient{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bg-orb{position:absolute;border-radius:50%;filter:blur(110px);will-change:transform}
+.bg-orb--gold{width:62vw;height:62vw;max-width:760px;max-height:760px;top:-6%;left:-12%;
+  background:radial-gradient(circle,rgba(217,164,65,.16),transparent 70%)}
+.bg-orb--red{width:56vw;height:56vw;max-width:700px;max-height:700px;top:62%;right:-14%;
+  background:radial-gradient(circle,rgba(225,29,42,.13),transparent 70%)}
+.bg-orb--cyan{width:50vw;height:50vw;max-width:620px;max-height:620px;top:128%;left:-8%;
+  background:radial-gradient(circle,rgba(34,211,238,.12),transparent 70%)}
 h1,h2,h3,h4,.eyebrow,.data{font-family:var(--display)}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -31,7 +44,7 @@ a{color:inherit;text-decoration:none}
 .eyebrow{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
   font-weight:500;display:inline-flex;align-items:center;gap:11px}
 .eyebrow::before{content:"";width:30px;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
-.section{padding:108px 0;position:relative}
+.section{padding:108px 0;position:relative;z-index:1}
 .section-head{max-width:640px;margin-bottom:54px}
 .section-head h2{font-size:clamp(28px,4.2vw,46px);font-weight:600;line-height:1.08;
   letter-spacing:-.02em;margin-top:18px}
