@@ -8,10 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=25">
-<link rel="stylesheet" href="css/components.css?v=25">
-<link rel="stylesheet" href="css/animations.css?v=25">
-<link rel="stylesheet" href="css/finance-wizard.css?v=25">
+<link rel="stylesheet" href="css/style.css?v=26">
+<link rel="stylesheet" href="css/components.css?v=26">
+<link rel="stylesheet" href="css/animations.css?v=26">
+<link rel="stylesheet" href="css/finance-wizard.css?v=26">
+<link rel="stylesheet" href="css/vehicle-whatsapp.css?v=26">
 </head>
 <body>
 
@@ -152,13 +153,55 @@
         </div>
         <div class="detail-actions">
           <a href="#contact" class="btn btn-primary">Enquire Now</a>
-          <a href="https://wa.me/27768615477" target="_blank" rel="noopener noreferrer" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.1-.5 0a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6 8.6c0 1.8 1.3 3.5 1.5 3.8s2.6 4 6.3 5.3c2.3.8 2.4.5 2.9.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+          <button type="button" id="vehicleWaBtn" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.4 5 5.1-1.3A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.8 1-.3.1-.5 0a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.6-1.2a.4.4 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3A3 3 0 0 0 6 8.6c0 1.8 1.3 3.5 1.5 3.8s2.6 4 6.3 5.3c2.3.8 2.4.5 2.9.5a2.5 2.5 0 0 0 1.7-1.2 2 2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>WhatsApp Enquiry</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ===================== VEHICLE WHATSAPP ENQUIRY ===================== -->
+<div class="vw-overlay" id="vwOverlay" hidden>
+  <div class="vw-modal" id="vwModal" role="dialog" aria-modal="true" aria-labelledby="vwTitle">
+    <header class="vw-head">
+      <h3 id="vwTitle">WhatsApp Enquiry</h3>
+      <button type="button" class="vw-close" id="vwClose" aria-label="Close enquiry">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </header>
+
+    <div class="vw-body">
+      <div class="vw-vehicle-card">
+        <img class="vw-vehicle-img" id="vwVehicleImg" src="" alt="">
+        <div class="vw-vehicle-info">
+          <h4 id="vwVehicleName"></h4>
+          <p class="vw-vehicle-price" id="vwVehiclePrice"></p>
+          <div class="vw-spec-grid" id="vwSpecGrid"></div>
+        </div>
+      </div>
+
+      <form id="vwForm" novalidate>
+        <div class="field">
+          <label for="vwName">First Name</label><input id="vwName" type="text" placeholder="Your first name">
+          <small class="field-error"></small>
+        </div>
+        <div class="field">
+          <label for="vwPhone">Phone Number</label><input id="vwPhone" type="tel" placeholder="082 000 0000">
+          <small class="field-error"></small>
+        </div>
+        <div class="field">
+          <label for="vwMessage">Additional Message <span class="vw-optional">(optional)</span></label>
+          <textarea id="vwMessage" placeholder="Is this vehicle still available? Anything else you'd like to ask…"></textarea>
+        </div>
+      </form>
+    </div>
+
+    <footer class="vw-foot">
+      <button type="button" class="btn btn-ghost" id="vwCancel">Cancel</button>
+      <button type="button" class="btn btn-wa" id="vwContinue">Continue to WhatsApp</button>
+    </footer>
+  </div>
+</div>
 
 <!-- ===================== ABOUT ===================== -->
 <section class="section" id="about">
@@ -692,15 +735,16 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=25"></script>
-<script src="js/vehicles-data.js?v=25"></script>
-<script src="js/finance-wizard.js?v=25"></script>
-<script src="js/contact-form.js?v=25"></script>
-<script src="js/detail.js?v=25"></script>
-<script src="js/inventory.js?v=25"></script>
-<script src="js/animations.js?v=25"></script>
-<script src="js/counters.js?v=25"></script>
-<script src="js/testimonials.js?v=25"></script>
-<script src="js/hero.js?v=25"></script>
+<script src="js/script.js?v=26"></script>
+<script src="js/vehicles-data.js?v=26"></script>
+<script src="js/finance-wizard.js?v=26"></script>
+<script src="js/contact-form.js?v=26"></script>
+<script src="js/detail.js?v=26"></script>
+<script src="js/vehicle-whatsapp.js?v=26"></script>
+<script src="js/inventory.js?v=26"></script>
+<script src="js/animations.js?v=26"></script>
+<script src="js/counters.js?v=26"></script>
+<script src="js/testimonials.js?v=26"></script>
+<script src="js/hero.js?v=26"></script>
 </body>
 </html>

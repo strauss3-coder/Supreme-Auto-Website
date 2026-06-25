@@ -1,0 +1,54 @@
+/* =========================================================
+   VEHICLE WHATSAPP ENQUIRY
+   ========================================================= */
+.vw-overlay{position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:rgba(8,8,8,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  opacity:0;transition:opacity .35s var(--ease)}
+.vw-overlay.is-open{opacity:1}
+.vw-overlay[hidden]{display:none}
+
+.vw-modal{position:relative;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column;
+  overflow:hidden;background:var(--bg-2);border:1px solid var(--border-2);border-radius:22px;box-shadow:var(--shadow);
+  transform:scale(.95);opacity:0;transition:transform .35s var(--ease),opacity .35s var(--ease)}
+.vw-overlay.is-open .vw-modal{transform:scale(1);opacity:1}
+
+.vw-head{display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:22px 26px;border-bottom:1px solid var(--border)}
+.vw-head h3{font-family:var(--display);font-size:19px;font-weight:600;letter-spacing:-.01em}
+.vw-close{flex:0 0 auto;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
+  background:var(--surface);border:1px solid var(--border-2);color:var(--text);cursor:pointer;
+  transition:.3s var(--ease)}
+.vw-close:hover{border-color:var(--gold);color:var(--gold)}
+.vw-close:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.vw-close svg{width:15px;height:15px}
+
+/* single scroll area for the whole body -- avoids the nested-scrollbar
+   trap from the finance wizard (no inner element gets its own
+   overflow-y, only this one does) */
+.vw-body{flex:1 1 auto;min-width:0;overflow-y:auto;padding:24px 26px}
+
+.vw-vehicle-card{display:flex;gap:16px;background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--r);padding:16px;backdrop-filter:blur(8px);margin-bottom:22px}
+.vw-vehicle-img{width:96px;height:96px;flex:0 0 auto;border-radius:14px;object-fit:cover;
+  border:1px solid var(--border-2)}
+.vw-vehicle-info{min-width:0}
+.vw-vehicle-info h4{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:2px}
+.vw-vehicle-price{font-family:var(--display);color:var(--gold);font-size:15px;font-weight:600;margin-bottom:10px}
+.vw-spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px 16px}
+.vw-spec-grid div{font-size:12px;color:var(--muted)}
+.vw-spec-grid div b{color:var(--text);font-weight:500}
+
+.vw-optional{color:var(--faint);font-weight:400;text-transform:none;letter-spacing:0}
+
+.vw-foot{display:flex;align-items:center;justify-content:flex-end;gap:12px;
+  padding:18px 26px;border-top:1px solid var(--border)}
+.vw-foot .btn{padding:13px 22px;font-size:13.5px}
+
+@media(max-width:480px){
+  .vw-head{padding:18px 20px}
+  .vw-body{padding:20px}
+  .vw-vehicle-card{flex-direction:column}
+  .vw-vehicle-img{width:100%;height:140px}
+  .vw-foot{padding:16px 20px;flex-wrap:wrap}
+  .vw-foot .btn{flex:1 1 auto;justify-content:center}
+}

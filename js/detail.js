@@ -4,8 +4,15 @@
    first) vehicle by default so the section is never empty. Renders a
    thumbnail per photo in vehicle.images -- clicking one swaps the main
    image, same gallery interaction the static mockup used to have, but
-   now driven by each vehicle's real photo set instead of a fixed list. */
+   now driven by each vehicle's real photo set instead of a fixed list.
+
+   Also exposes window.getCurrentVehicle() so other features (the
+   WhatsApp enquiry modal) can read whichever vehicle is currently on
+   screen without re-fetching or duplicating vehicles.json data. */
 (function(){
+  var currentVehicle=null;
+  window.getCurrentVehicle=function(){return currentVehicle;};
+
   var img=document.getElementById('detailImage');
   var thumbs=document.getElementById('galleryThumbs');
   var name=document.getElementById('detailName');
@@ -41,6 +48,7 @@
   }
 
   window.renderVehicleDetail=function(v){
+    currentVehicle=v;
     var label=v.make+' '+v.model;
     img.src=v.images[0];
     img.alt=label;
