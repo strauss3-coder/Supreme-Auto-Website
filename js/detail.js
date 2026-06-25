@@ -33,7 +33,7 @@
     if(!thumbs)return;
     thumbs.innerHTML=images.map(function(src,i){
       return '<div class="media'+(i===activeIndex?' active':'')+'" data-src="'+src+'">'+
-        '<span class="ph">'+(i+1)+'</span><img src="'+src+'" alt="'+label+' photo '+(i+1)+'" loading="lazy" onerror="this.remove()"></div>';
+        '<span class="ph">'+(i+1)+'</span><img src="'+src+'" alt="'+label+' photo '+(i+1)+'" width="70" height="48" loading="lazy" onerror="this.remove()"></div>';
     }).join('');
   }
 

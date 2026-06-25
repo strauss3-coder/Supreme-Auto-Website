@@ -364,7 +364,7 @@
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--cyan);
   box-shadow:0 0 0 3px rgba(34,211,238,.14)}
 .field textarea{resize:vertical;min-height:110px}
-.field-error{display:block;min-height:16px;margin-top:6px;color:var(--red);font-size:12px}
+.field-error{display:block;min-height:16px;margin-top:6px;color:var(--red-text);font-size:12px}
 .field--invalid input{border-color:var(--red-soft)}
 .form .btn{width:100%;justify-content:center;margin-top:6px}
 .form-ok{display:none;align-items:center;gap:10px;color:var(--gold);font-size:14px;

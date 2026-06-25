@@ -25,39 +25,51 @@
 <meta name="twitter:description" content="Carefully inspected premium vehicles, transparent pricing and finance assistance in Pretoria North. Browse our inventory.">
 <meta name="twitter:image" content="https://supremeautonorth.co.za/assets/images/hero-background.jpg">
 
-<!-- Structured data: local business -->
+<!-- Structured data: local business + website -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AutomotiveBusiness",
-  "name": "Supreme Auto",
-  "image": "https://supremeautonorth.co.za/assets/images/hero-background.jpg",
-  "url": "https://supremeautonorth.co.za/",
-  "telephone": "+27827718514",
-  "email": "supremea1auto@gmail.com",
-  "priceRange": "R R R",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "546 Rachel de Beer St",
-    "addressLocality": "Pretoria North",
-    "addressRegion": "Gauteng",
-    "postalCode": "0182",
-    "addressCountry": "ZA"
-  },
-  "openingHoursSpecification": [
-    {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens": "08:00","closes": "17:00"},
-    {"@type": "OpeningHoursSpecification","dayOfWeek": "Saturday","opens": "08:00","closes": "13:00"}
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.0",
-    "reviewCount": "51"
-  },
-  "sameAs": [
-    "https://www.facebook.com/PretoriaSupremeAuto",
-    "https://www.instagram.com/pretoriasupremeauto/",
-    "https://www.tiktok.com/@supremeautoa1",
-    "https://maps.app.goo.gl/hUhCM8x1PfBhkuir8"
+  "@graph": [
+    {
+      "@type": "AutomotiveBusiness",
+      "@id": "https://supremeautonorth.co.za/#business",
+      "name": "Supreme Auto",
+      "image": "https://supremeautonorth.co.za/assets/images/hero-background.jpg",
+      "url": "https://supremeautonorth.co.za/",
+      "telephone": "+27827718514",
+      "email": "supremea1auto@gmail.com",
+      "priceRange": "R R R",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "546 Rachel de Beer St",
+        "addressLocality": "Pretoria North",
+        "addressRegion": "Gauteng",
+        "postalCode": "0182",
+        "addressCountry": "ZA"
+      },
+      "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification","dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens": "08:00","closes": "17:00"},
+        {"@type": "OpeningHoursSpecification","dayOfWeek": "Saturday","opens": "08:00","closes": "13:00"}
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.0",
+        "reviewCount": "51"
+      },
+      "sameAs": [
+        "https://www.facebook.com/PretoriaSupremeAuto",
+        "https://www.instagram.com/pretoriasupremeauto/",
+        "https://www.tiktok.com/@supremeautoa1",
+        "https://maps.app.goo.gl/hUhCM8x1PfBhkuir8"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://supremeautonorth.co.za/#website",
+      "name": "Supreme Auto",
+      "url": "https://supremeautonorth.co.za/",
+      "publisher": { "@id": "https://supremeautonorth.co.za/#business" }
+    }
   ]
 }
 </script>
@@ -66,11 +78,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/images/hero-background.jpg" fetchpriority="high">
-<link rel="stylesheet" href="css/style.css?v=34">
-<link rel="stylesheet" href="css/components.css?v=34">
-<link rel="stylesheet" href="css/animations.css?v=34">
-<link rel="stylesheet" href="css/finance-wizard.css?v=34">
-<link rel="stylesheet" href="css/vehicle-whatsapp.css?v=34">
+<link rel="stylesheet" href="css/style.css?v=35">
+<link rel="stylesheet" href="css/components.css?v=35">
+<link rel="stylesheet" href="css/animations.css?v=35">
+<link rel="stylesheet" href="css/finance-wizard.css?v=35">
+<link rel="stylesheet" href="css/vehicle-whatsapp.css?v=35">
 </head>
 <body>
 
@@ -114,7 +126,7 @@
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="home">
   <div class="hero-media">
-    <img class="hero-img" src="assets/images/hero-background.jpg" alt="Premium vehicle on the Supreme Auto showroom floor, Pretoria North" loading="eager" fetchpriority="high" onerror="this.remove()">
+    <img class="hero-img" src="assets/images/hero-background.jpg" alt="Premium vehicle on the Supreme Auto showroom floor, Pretoria North" width="1280" height="960" loading="eager" fetchpriority="high" onerror="this.remove()">
   </div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-fade" aria-hidden="true"></div>
@@ -204,7 +216,7 @@
     </div>
     <div class="detail-grid">
       <div class="reveal">
-        <div class="gallery-main media"><span class="ph">Vehicle Gallery</span><img id="detailImage" src="assets/images/inventory/bmw-320-i/1.jpg" alt="BMW 3 Series 320i M Sport" loading="lazy" onerror="this.remove()"></div>
+        <div class="gallery-main media"><span class="ph">Vehicle Gallery</span><img id="detailImage" src="assets/images/inventory/bmw-320-i/1.jpg" alt="BMW 3 Series 320i M Sport" width="640" height="400" loading="lazy" onerror="this.remove()"></div>
         <div class="gallery-thumbs" id="galleryThumbs"></div>
       </div>
       <div class="detail-panel reveal" data-delay="1">
@@ -244,7 +256,7 @@
 
     <div class="vw-body">
       <div class="vw-vehicle-card">
-        <img class="vw-vehicle-img" id="vwVehicleImg" src="" alt="">
+        <img class="vw-vehicle-img" id="vwVehicleImg" src="" alt="" width="96" height="96">
         <div class="vw-vehicle-info">
           <h4 id="vwVehicleName"></h4>
           <p class="vw-vehicle-price" id="vwVehiclePrice"></p>
@@ -282,7 +294,7 @@
       <div class="about-visual reveal">
         <div class="about-media media">
           <span class="ph">Our Team</span>
-          <img src="assets/images/team-photo.jpg" alt="The Supreme Auto team, Pretoria North" loading="lazy" onerror="this.remove()">
+          <img src="assets/images/team-photo.jpg" alt="The Supreme Auto team, Pretoria North" width="1600" height="1200" loading="lazy" onerror="this.remove()">
         </div>
         <div class="badge"><b>4.0★</b><small>Rated by our customers</small></div>
       </div>
@@ -840,18 +852,18 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=34"></script>
-<script src="js/vehicles-data.js?v=34"></script>
-<script src="js/finance-wizard.js?v=34"></script>
-<script src="js/contact-form.js?v=34"></script>
-<script src="js/detail.js?v=34"></script>
-<script src="js/vehicle-whatsapp.js?v=34"></script>
-<script src="js/inventory.js?v=34"></script>
-<script src="js/animations.js?v=34"></script>
-<script src="js/parallax.js?v=34"></script>
-<script src="js/cursor-glow.js?v=34"></script>
-<script src="js/counters.js?v=34"></script>
-<script src="js/testimonials.js?v=34"></script>
-<script src="js/hero.js?v=34"></script>
+<script src="js/script.js?v=35"></script>
+<script src="js/vehicles-data.js?v=35"></script>
+<script src="js/finance-wizard.js?v=35"></script>
+<script src="js/contact-form.js?v=35"></script>
+<script src="js/detail.js?v=35"></script>
+<script src="js/vehicle-whatsapp.js?v=35"></script>
+<script src="js/inventory.js?v=35"></script>
+<script src="js/animations.js?v=35"></script>
+<script src="js/parallax.js?v=35"></script>
+<script src="js/cursor-glow.js?v=35"></script>
+<script src="js/counters.js?v=35"></script>
+<script src="js/testimonials.js?v=35"></script>
+<script src="js/hero.js?v=35"></script>
 </body>
 </html>

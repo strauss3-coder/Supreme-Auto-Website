@@ -82,11 +82,11 @@
     var images=v.images||[];
     var label=v.make+' '+v.model;
     if(images.length<=1){
-      return '<img src="'+(images[0]||'')+'" alt="'+label+'" loading="lazy" onerror="this.remove()">';
+      return '<img src="'+(images[0]||'')+'" alt="'+label+'" width="320" height="220" loading="lazy" onerror="this.remove()">';
     }
     var slides=images.map(function(src,i){
       var attr=i===0?'src="'+src+'"':'data-src="'+src+'"';
-      return '<div class="car-slide" data-i="'+i+'"><img '+attr+' alt="'+label+' photo '+(i+1)+'" loading="lazy" onerror="this.remove()"></div>';
+      return '<div class="car-slide" data-i="'+i+'"><img '+attr+' alt="'+label+' photo '+(i+1)+'" width="320" height="220" loading="lazy" onerror="this.remove()"></div>';
     }).join('');
     var dots=images.map(function(_,i){
       return '<button type="button" class="car-dot'+(i===0?' is-active':'')+'" data-i="'+i+'" aria-label="Photo '+(i+1)+' of '+images.length+'"'+(i===0?' aria-current="true"':'')+'></button>';
