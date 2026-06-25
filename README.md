@@ -53,8 +53,8 @@ Marketing site for Supreme Auto, a premium vehicle dealership in Pretoria North.
 ## Deployment (GitHub Pages)
 
 1. Push this repository to GitHub.
-2. In **Settings → Pages**, set the source to the `main` branch, root folder.
-3. The site is served from `index.html` with relative paths to `css/`, `js/` and `assets/` — no build step required. `robots.txt` and `sitemap.xml` use the absolute `https://strauss3-coder.github.io/Supreme-Auto-Website/` URL, since both are required to contain absolute URLs regardless of hosting.
+2. In **Settings → Pages**, set the source to the `main` branch, root folder. Custom domain is set to `supremeautonorth.co.za` (the `CNAME` file in the repo root must keep matching whatever's configured there, or GitHub Pages will drop the custom domain on the next deploy).
+3. The site is served from `index.html` with relative paths to `css/`, `js/` and `assets/` — no build step required. `robots.txt`, `sitemap.xml` and every page's canonical/Open Graph tags use the absolute `https://supremeautonorth.co.za/` URL — all of these must stay on the same domain the site actually serves from, or Google Search Console will reject the sitemap ("not allowed for a sitemap at this location").
 
 ### Cache-busting
 
