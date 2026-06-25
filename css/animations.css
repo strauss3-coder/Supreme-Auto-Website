@@ -42,6 +42,7 @@
   .about-grid,.finance-grid,.detail-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
   .section{padding:78px 0}
   .hero-trust{grid-template-columns:repeat(2,minmax(0,1fr));max-width:520px}
+  .location-info{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:600px){
   .wrap{padding:0 20px}
@@ -56,6 +57,7 @@
   .hero-actions{flex-direction:column}.hero-actions .btn-hero{width:100%;justify-content:center}
   .hero-trust{grid-template-columns:minmax(0,1fr)}
   .trust-bar{grid-template-columns:repeat(2,1fr)}
+  .location-info{grid-template-columns:1fr}
   .testi-track > .testi{flex:0 0 100%}
   .testi-nav{width:38px;height:38px}
 }

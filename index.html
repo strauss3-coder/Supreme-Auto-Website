@@ -8,11 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=26">
-<link rel="stylesheet" href="css/components.css?v=26">
-<link rel="stylesheet" href="css/animations.css?v=26">
-<link rel="stylesheet" href="css/finance-wizard.css?v=26">
-<link rel="stylesheet" href="css/vehicle-whatsapp.css?v=26">
+<link rel="stylesheet" href="css/style.css?v=27">
+<link rel="stylesheet" href="css/components.css?v=27">
+<link rel="stylesheet" href="css/animations.css?v=27">
+<link rel="stylesheet" href="css/finance-wizard.css?v=27">
+<link rel="stylesheet" href="css/vehicle-whatsapp.css?v=27">
 </head>
 <body>
 
@@ -710,8 +710,40 @@
         <div class="form-ok" id="formOk"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>Opening WhatsApp…</div>
       </form>
     </div>
-    <div class="map media reveal">
-      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Google Maps · Pretoria North</div>
+    <div class="location-head reveal">
+      <h3>Visit Our Showroom</h3>
+      <p>Come and view our vehicles in person. Our team is ready to assist you.</p>
+    </div>
+
+    <div class="location-info">
+      <div class="location-item reveal">
+        <div class="location-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><small>Address</small><b>546 Rachel de Beer St, Pretoria North</b></div>
+      </div>
+      <div class="location-item reveal" data-delay="1">
+        <div class="location-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <div><small>Business Hours</small><b>Mon–Fri 08:00–17:00 · Sat 08:00–13:00</b></div>
+      </div>
+      <div class="location-item reveal" data-delay="2">
+        <div class="location-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></div>
+        <div><small>Phone</small><b><a href="tel:+27827718514">(082) 771-8514</a></b></div>
+      </div>
+      <div class="location-item reveal" data-delay="3">
+        <div class="location-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 17h14M5 17a2 2 0 1 1-4 0M19 17a2 2 0 1 0 4 0M5 17l1.5-7h11L19 17M7 10l1-4h8l1 4"/></svg></div>
+        <div><small>Parking</small><b>Easy Parking Available</b></div>
+      </div>
+    </div>
+
+    <div class="map-frame reveal">
+      <span class="map-glow" aria-hidden="true"></span>
+      <iframe class="map-iframe" src="https://www.google.com/maps?q=546+Rachel+de+Beer+St,+Pretoria+North,+Pretoria&output=embed" title="Supreme Auto location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+
+    <div class="map-cta">
+      <a class="btn-directions" href="https://www.google.com/maps/dir/?api=1&destination=546+Rachel+de+Beer+St,+Pretoria+North,+Pretoria" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>
+        Get Directions
+      </a>
     </div>
   </div>
 </section>
@@ -726,7 +758,7 @@
       </div>
       <div><h5>Explore</h5><ul><li><a href="#inventory">Inventory</a></li><li><a href="#about">About</a></li><li><a href="#why">Financing Partners</a></li><li><a href="#finance">Finance</a></li></ul></div>
       <div><h5>Company</h5><ul><li><a href="#testimonials">Testimonials</a></li><li><a href="#contact">Contact</a></li><li><a href="#services">Services</a></li></ul></div>
-      <div><h5>Visit</h5><ul><li><a href="#contact">Pretoria North</a></li><li><a href="#contact">012 XXX XXXX</a></li><li><a href="#contact">Mon–Sat</a></li></ul></div>
+      <div><h5>Visit</h5><ul><li><a href="#contact">Pretoria North</a></li><li><a href="tel:+27827718514">(082) 771-8514</a></li><li><a href="#contact">Mon–Sat</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>© 2026 Supreme Auto · Pretoria North, South Africa</p>
@@ -735,16 +767,16 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=26"></script>
-<script src="js/vehicles-data.js?v=26"></script>
-<script src="js/finance-wizard.js?v=26"></script>
-<script src="js/contact-form.js?v=26"></script>
-<script src="js/detail.js?v=26"></script>
-<script src="js/vehicle-whatsapp.js?v=26"></script>
-<script src="js/inventory.js?v=26"></script>
-<script src="js/animations.js?v=26"></script>
-<script src="js/counters.js?v=26"></script>
-<script src="js/testimonials.js?v=26"></script>
-<script src="js/hero.js?v=26"></script>
+<script src="js/script.js?v=27"></script>
+<script src="js/vehicles-data.js?v=27"></script>
+<script src="js/finance-wizard.js?v=27"></script>
+<script src="js/contact-form.js?v=27"></script>
+<script src="js/detail.js?v=27"></script>
+<script src="js/vehicle-whatsapp.js?v=27"></script>
+<script src="js/inventory.js?v=27"></script>
+<script src="js/animations.js?v=27"></script>
+<script src="js/counters.js?v=27"></script>
+<script src="js/testimonials.js?v=27"></script>
+<script src="js/hero.js?v=27"></script>
 </body>
 </html>
