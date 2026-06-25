@@ -25,7 +25,7 @@
   backdrop-filter:blur(8px);transition:.4s var(--ease);position:relative;overflow:hidden}
 .stat::before{content:"";position:absolute;top:0;left:0;width:0;height:2px;
   background:linear-gradient(90deg,var(--green),transparent);transition:width .5s var(--ease)}
-.stat:hover{border-color:var(--border-2);transform:translateY(-4px)}
+.stat:hover{border-color:var(--border-2);transform:translateY(-4px);box-shadow:var(--shadow)}
 .stat:hover::before{width:100%}
 .stat b{font-family:var(--display);font-size:38px;font-weight:600;letter-spacing:-.02em;display:block}
 .stat b i{color:var(--green);font-style:normal;text-shadow:0 0 16px var(--green-soft);
@@ -261,7 +261,7 @@
   margin-top:56px;padding-top:8px;text-align:center}
 .testi-cta p{color:var(--muted);font-size:14.5px;margin:0}
 .testi-cta-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);
-  font-weight:500;font-size:14.5px;color:var(--text);padding:14px 28px;border-radius:20px;
+  font-weight:500;font-size:14.5px;color:var(--text);padding:14px 28px;border-radius:99px;
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(10px);
   box-shadow:0 0 0 0 var(--red-soft);
   transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease),
@@ -375,7 +375,7 @@
 
 .map-cta{display:flex;justify-content:center;margin-top:28px}
 .btn-directions{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-weight:500;
-  font-size:14.5px;color:var(--text);padding:14px 28px;border-radius:20px;background:rgba(255,255,255,.05);
+  font-size:14.5px;color:var(--text);padding:14px 28px;border-radius:99px;background:rgba(255,255,255,.05);
   border:1px solid var(--cyan-soft);backdrop-filter:blur(10px);
   transition:transform .35s var(--ease),background .35s var(--ease),border-color .35s var(--ease),
     box-shadow .35s var(--ease)}
