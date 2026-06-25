@@ -24,7 +24,7 @@
   var vehicleSelect=document.getElementById('fwVehicle');
 
   var STORAGE_KEY='supremeauto_finance_draft';
-  var DEALER_EMAIL='supremealauto@gmail.com';
+  var DEALER_EMAIL='supremea1auto@gmail.com';
   var TOTAL_STEPS=5;
   var STEP_NAMES=['Personal Details','Employment','Vehicle & Finance','Review','Submit'];
 
