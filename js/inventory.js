@@ -68,11 +68,13 @@
   function formatPrice(n){return n==null?'POA':'R'+n.toLocaleString('en-ZA');}
   function formatKm(n){return n==null?'—':n.toLocaleString('en-ZA')+' km';}
 
-  function vehicleCardHTML(v){
+  function vehicleCardHTML(v,index){
     var tag=v.tag?'<span class="tag">'+v.tag+'</span>':'';
     var fuelEngine=v.engineSize?(v.fuelType+' · '+v.engineSize):v.fuelType;
+    var delay=index%4;
+    var delayAttr=delay?' data-delay="'+delay+'"':'';
     return (
-      '<article class="car">'+
+      '<article class="car reveal"'+delayAttr+'>'+
         '<div class="car-media media"><span class="ph">'+v.make+' '+v.model+'</span>'+tag+
           '<img src="'+v.images[0]+'" alt="'+v.make+' '+v.model+'" loading="lazy" onerror="this.remove()"></div>'+
         '<div class="car-body">'+
@@ -98,7 +100,8 @@
     }else{
       emptyState.hidden=true;
       grid.hidden=false;
-      grid.innerHTML=vehicles.map(vehicleCardHTML).join('');
+      grid.innerHTML=vehicles.map(function(v,i){return vehicleCardHTML(v,i);}).join('');
+      if(window.refreshReveals)window.refreshReveals();
     }
   }
 
