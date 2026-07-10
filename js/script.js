@@ -1,13 +1,16 @@
 /* ========== force fresh loads to start at the top ==========
-   Browsers restore the last scroll position on reload/revisit by
-   default. If someone previously scrolled down (e.g. while testing
-   the Inventory section) and then reopens the bare URL with no
-   #anchor, the browser can silently re-scroll them straight to that
-   old position instead of the hero -- this disables that restoration
-   and scrolls to top, but only when there's no real #anchor in the
-   URL (so direct links like #inventory still work normally). */
+   Root cause: css/style.css sets html{scroll-behavior:smooth}, which
+   causes window.scrollTo(0,0) to animate instead of snap -- the smooth
+   animation loses a race with the browser's own scroll restoration and
+   gets cancelled, leaving the page mid-scroll. Fix: always pass
+   behavior:'instant' (overrides the CSS smooth for programmatic calls)
+   and repeat on the load event to cover the late-restore race. The hash
+   guard is kept so direct anchor links (#inventory etc.) still work. */
 if('scrollRestoration' in history)history.scrollRestoration='manual';
-if(!location.hash)window.scrollTo(0,0);
+if(!location.hash)window.scrollTo({top:0,left:0,behavior:'instant'});
+window.addEventListener('load',function(){
+  if(!location.hash)window.scrollTo({top:0,left:0,behavior:'instant'});
+});
 
 /* ========== nav scroll state ========== */
 var nav=document.getElementById('nav');
