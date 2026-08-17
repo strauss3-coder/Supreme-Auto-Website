@@ -112,8 +112,29 @@
         }).join('');
       });
     }
+    /* The badge above the headline keeps its decorative dot, so the text is
+       replaced around it rather than by overwriting the whole element. */
+    if(home.heroBadge){
+      set('[data-sa="hero-badge"]',function(el){
+        var dot=el.querySelector('.dot');
+        el.textContent=home.heroBadge;
+        if(dot)el.insertBefore(dot,el.firstChild);
+      });
+    }
     if(home.heroSubtitle){
       set('[data-sa="hero-sub"]',function(el){el.textContent=home.heroSubtitle;});
+    }
+
+    /* ---------- about section ----------
+       Only the eyebrow and the opening paragraph are portal driven. The
+       headline, the second paragraph and the tick list are bespoke copy
+       with no field behind them, so they are deliberately left in the
+       markup rather than given a portal field that does not exist. */
+    if(home.aboutTitle){
+      set('[data-sa="about-title"]',function(el){el.textContent=home.aboutTitle;});
+    }
+    if(home.aboutText){
+      set('[data-sa="about-text"]',function(el){el.textContent=home.aboutText;});
     }
     if(home.btn1Text){
       set('[data-sa="hero-btn1"]',function(a){
