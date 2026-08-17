@@ -104,9 +104,33 @@
     window.openInNewTab(url);
   }
 
+  /* The enquiry is recorded in the portal before WhatsApp opens, for the same
+     reason the contact form does it: WhatsApp is a handoff the dealership
+     cannot audit. If the customer never presses send, or sends from a phone
+     nobody is watching, the lead still exists as a row in the inbox.
+
+     Deliberately not conditional on the write succeeding. If Supabase is
+     unreachable the customer must still get through -- that is the whole
+     point of the button. A failed write is logged, never shown. */
+  function logEnquiry(v){
+    if(!window.SupremeData||!window.SupremeData.submitEnquiry)return;
+    var note=messageInput.value.trim();
+    window.SupremeData.submitEnquiry({
+      name:nameInput.value.trim(),
+      phone:phoneInput.value.trim(),
+      email:'',
+      vehicle:v.year+' '+v.make+' '+v.model+(v.stockNumber?' (Stock '+v.stockNumber+')':''),
+      message:note||'Started a WhatsApp enquiry from the vehicle page. No additional message.',
+      source:'Vehicle WhatsApp'
+    }).catch(function(err){
+      console.error('[vehicle-enquiry] could not reach the portal inbox: '+err.message);
+    });
+  }
+
   continueBtn.addEventListener('click',function(){
     if(!currentVehicle)return;
     if(!validate())return;
+    logEnquiry(currentVehicle);
     openWhatsApp();
     closeModal();
   });

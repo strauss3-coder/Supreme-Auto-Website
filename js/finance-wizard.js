@@ -251,7 +251,40 @@
     emailPreviewEl.textContent='Subject: '+buildEmailSubject()+'\n\n'+buildEmailBody();
   }
 
+  /* Records that a finance application was sent, so the lead exists in the
+     portal even when the mailto never arrives -- a visitor with no configured
+     mail client would otherwise vanish silently, and that is the most
+     valuable lead on the site.
+
+     Only contact details and the vehicle are stored. The ID number, physical
+     address and income figures stay in the email alone. They are sensitive
+     under POPIA, the enquiries table has no special protection for them, and
+     the privacy policy tells customers the wizard is not stored. The dealer
+     gets the full application by email as before; the portal row is a
+     pointer to it, not a copy. */
+  function logEnquiry(){
+    if(!window.SupremeData||!window.SupremeData.submitEnquiry)return;
+    var tradeIn=document.querySelector('input[name="fwTradeIn"]:checked');
+    var parts=['Finance application submitted from the website.'];
+    if(val('fwDeposit'))parts.push('Deposit: '+val('fwDeposit'));
+    if(val('fwLoanTerm'))parts.push('Term: '+val('fwLoanTerm'));
+    if(tradeIn)parts.push('Trade-in: '+tradeIn.value);
+    if(val('fwNotes'))parts.push('Notes: '+val('fwNotes'));
+    parts.push('Full application, including the details not stored here, was emailed to '+DEALER_EMAIL+'.');
+    window.SupremeData.submitEnquiry({
+      name:(val('fwFirstName')+' '+val('fwLastName')).trim(),
+      phone:val('fwPhone'),
+      email:val('fwEmail'),
+      vehicle:val('fwVehicle')||'Finance application',
+      message:parts.join('\n'),
+      source:'Finance application'
+    }).catch(function(err){
+      console.error('[finance-enquiry] could not reach the portal inbox: '+err.message);
+    });
+  }
+
   function sendApplication(){
+    logEnquiry();
     var subject=encodeURIComponent(buildEmailSubject());
     var body=encodeURIComponent(buildEmailBody().replace(/\n/g,'\r\n'));
     var mailto='mailto:'+DEALER_EMAIL+'?subject='+subject+'&body='+body;
