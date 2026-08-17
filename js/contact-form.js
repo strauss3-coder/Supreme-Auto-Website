@@ -1,12 +1,20 @@
 /* ========== enquiry form: searchable vehicle combobox + WhatsApp send ==========
-   Vehicle of Interest is populated from getVehicles() (vehicles-data.js) --
-   whenever a vehicle is added to/removed from assets/vehicles.json, this
-   list updates automatically with no changes needed here.
+   Vehicle of Interest is populated from getVehicles() (vehicles-data.js),
+   which now reads the live portal database, so this list follows the
+   dealership's real stock with no changes needed here.
+
+   On submit the enquiry is saved to the portal inbox AND handed to
+   WhatsApp. See the submit handler for why both, in that order.
 
    WHATSAPP_NUMBER: same number already used for the social WhatsApp
    button in this section -- one inbox for both channels. */
 (function(){
-  var WHATSAPP_NUMBER='27768615477';
+  /* Fallback only. site-content.js publishes the portal's WhatsApp number as
+     window.SA_WHATSAPP, but it loads after this file and resolves async, so the
+     number is read at submit time rather than captured here. Change the number
+     in the portal and this handoff follows it. */
+  var WHATSAPP_FALLBACK='27768615477';
+  function whatsappNumber(){ return window.SA_WHATSAPP || WHATSAPP_FALLBACK; }
 
   var form=document.getElementById('enquiryForm');
   var ok=document.getElementById('formOk');
@@ -161,7 +169,33 @@
     e.preventDefault();
     if(!validate())return;
 
-    var url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(buildMessage());
+    /* Two things happen on submit, and the order matters.
+
+       First the enquiry is written to the database so it appears in the
+       portal's Enquiries page as unread. That is the record which cannot
+       be lost, deleted from a phone, or missed because someone was busy.
+
+       Then WhatsApp opens as before. The WhatsApp handoff is deliberately
+       not conditional on the database write succeeding: if Supabase is
+       down, the customer still reaches the dealership, which is the whole
+       point of the form. A failed write is logged, never shown as an
+       error, because from the customer's side nothing went wrong. */
+    var enquiry={
+      name:nameInput.value.trim(),
+      phone:phoneInput.value.trim(),
+      email:emailInput.value.trim(),
+      vehicle:vehHidden.value.trim()||'Not specified',
+      message:msgInput.value.trim(),
+      source:'Website form'
+    };
+
+    if(window.SupremeData&&window.SupremeData.submitEnquiry){
+      window.SupremeData.submitEnquiry(enquiry).catch(function(err){
+        console.error('[enquiry] could not reach the portal inbox: '+err.message);
+      });
+    }
+
+    var url='https://wa.me/'+whatsappNumber()+'?text='+encodeURIComponent(buildMessage());
     openInNewTab(url);
 
     ok.classList.add('show');

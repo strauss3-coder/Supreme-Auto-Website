@@ -9,7 +9,11 @@
   var modal=document.getElementById('vwModal');
   if(!openBtn||!overlay||!modal)return;
 
-  var WHATSAPP_NUMBER='27768615477';
+  /* Fallback only. The live number comes from the portal via
+     window.SA_WHATSAPP (set by site-content.js) and is read at click time,
+     because that file loads later and resolves asynchronously. */
+  var WHATSAPP_FALLBACK='27768615477';
+  function whatsappNumber(){ return window.SA_WHATSAPP || WHATSAPP_FALLBACK; }
 
   var closeBtn=document.getElementById('vwClose');
   var cancelBtn=document.getElementById('vwCancel');
@@ -96,7 +100,7 @@
   }
 
   function openWhatsApp(){
-    var url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(buildMessage(currentVehicle));
+    var url='https://wa.me/'+whatsappNumber()+'?text='+encodeURIComponent(buildMessage(currentVehicle));
     window.openInNewTab(url);
   }
 

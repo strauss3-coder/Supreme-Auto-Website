@@ -4,7 +4,11 @@
    that way it automatically matches whatever the current CSS breakpoint
    (3-up desktop / 2-up tablet / 1-up mobile) actually renders, with no
    risk of the JS and CSS breakpoints drifting out of sync. */
-(function(){
+/* The cards are rendered from the database by js/testimonials-render.js,
+   which calls window.initTestimonialCarousel() once they are in the DOM.
+   Everything below is unchanged apart from being wrapped in a function so
+   it can run again after a re-render, instead of only once at load. */
+window.initTestimonialCarousel=function(){
   var track=document.getElementById('testiTrack');
   var prevBtn=document.getElementById('testiPrev');
   var nextBtn=document.getElementById('testiNext');
@@ -37,24 +41,32 @@
     nextBtn.disabled=index>=max;
   }
 
-  prevBtn.addEventListener('click',function(){index--;update();});
-  nextBtn.addEventListener('click',function(){index++;update();});
+  /* replacing the handler rather than adding one keeps a second init from
+     moving the track two cards per click */
+  prevBtn.onclick=function(){index--;update();};
+  nextBtn.onclick=function(){index++;update();};
 
   var startX=null;
-  track.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;},{passive:true});
-  track.addEventListener('touchend',function(e){
+  track.ontouchstart=function(e){startX=e.touches[0].clientX;};
+  track.ontouchend=function(e){
     if(startX==null)return;
     var dx=e.changedTouches[0].clientX-startX;
     if(dx<-40){index++;update();}
     else if(dx>40){index--;update();}
     startX=null;
-  });
+  };
 
-  var resizeTimer=null;
-  window.addEventListener('resize',function(){
-    clearTimeout(resizeTimer);
-    resizeTimer=setTimeout(update,150);
-  });
+  if(!window._testiResizeBound){
+    window._testiResizeBound=true;
+    var resizeTimer=null;
+    window.addEventListener('resize',function(){
+      clearTimeout(resizeTimer);
+      resizeTimer=setTimeout(function(){
+        if(window._testiUpdate)window._testiUpdate();
+      },150);
+    });
+  }
+  window._testiUpdate=update;
 
   update();
 
@@ -69,4 +81,10 @@
       btn.setAttribute('aria-expanded',String(expanded));
     });
   });
-})();
+};
+
+/* if cards are already in the DOM (or the database render has not arrived
+   yet) wire up whatever is there, so the arrows are never dead */
+document.addEventListener('DOMContentLoaded',function(){
+  window.initTestimonialCarousel();
+});
