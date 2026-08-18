@@ -339,6 +339,10 @@
 .hours-list span:last-child{font-weight:500}
 
 .socials{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+/* An author display: value beats the UA stylesheet's [hidden] rule, so a
+   social button set to hidden by site-content.js stayed visible. Same
+   pattern already used by .vw-overlay[hidden] and .fw-overlay[hidden]. */
+.social-btn[hidden]{display:none}
 .social-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:14px;
   background:rgba(255,255,255,.05);border:1px solid var(--border-2);backdrop-filter:blur(8px);
   color:var(--text);font-family:var(--display);font-size:13.5px;font-weight:500;

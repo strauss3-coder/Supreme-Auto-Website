@@ -85,7 +85,7 @@
 
     /* ---------- social links, hidden when the field is empty ---------- */
     var social=contact.social||{};
-    ['facebook','instagram','tiktok','youtube','x'].forEach(function(k){
+    ['facebook','instagram','tiktok','autotrader','cars'].forEach(function(k){
       set('[data-sa="social-'+k+'"]',function(a){
         if(social[k]){
           a.setAttribute('href',social[k]);
