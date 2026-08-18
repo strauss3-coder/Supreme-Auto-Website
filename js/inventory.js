@@ -240,8 +240,16 @@
   grid.addEventListener('click',function(e){
     var link=e.target.closest('[data-vehicle-id]');
     if(!link)return;
+    /* Compare as strings. vehicles.json used numeric ids, so Number() was
+       correct then. The portal generates text ids ("v_site_1"), and
+       Number("v_site_1") is NaN -- which is never strictly equal to
+       anything, including itself. The filter therefore matched nothing,
+       the guard below returned early, and renderVehicleDetail() was never
+       called, so the detail panel kept showing whatever it loaded with.
+       String() handles both id styles. */
+    var wanted=String(link.getAttribute('data-vehicle-id'));
     var vehicle=ALL_VEHICLES.filter(function(v){
-      return v.id===Number(link.getAttribute('data-vehicle-id'));
+      return String(v.id)===wanted;
     })[0];
     if(!vehicle||!window.renderVehicleDetail)return;
     var media=link.closest('.car').querySelector('.car-media');
