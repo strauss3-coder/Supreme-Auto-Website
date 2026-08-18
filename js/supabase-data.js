@@ -9,7 +9,6 @@
                           inventory.js, detail.js, contact-form.js and
                           finance-wizard.js needed no changes.
      testimonials()    -> reviews, newest ordering set in the portal
-     offers()          -> promotional banners that are switched on
      settings()        -> homepage copy, contact details, hours, stats
      submitEnquiry(o)  -> writes an enquiry straight into the portal inbox
 
@@ -170,12 +169,6 @@
       });
     },
 
-    offers:function(){
-      return once('offers',function(){
-        /* the database only returns offers that are on and unexpired */
-        return get('offers?select=*&order=sort_order.asc','offers');
-      });
-    },
 
     settings:function(){
       return once('settings',function(){
