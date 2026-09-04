@@ -220,10 +220,24 @@
       s.selectedIndex=0;
     });
     updateModelOptions();
+    /* modelSelect is rebuilt by updateModelOptions, which deliberately keeps
+       the current choice if it still exists in the new list. On a clear that
+       is wrong: the box would still read "A3" while every car is shown. */
+    modelSelect.selectedIndex=0;
     renderWithFade(ALL_VEHICLES);
   }
 
-  makeSelect.addEventListener('change',updateModelOptions);
+  /* Filter the moment a dropdown changes. Previously nothing happened until
+     Search was pressed, so choosing a make and seeing the same fourteen cars
+     read as a broken filter bar. Search still submits, for anyone who reaches
+     for it out of habit and for keyboard users pressing Enter in the form. */
+  [makeSelect,modelSelect,priceSelect,yearSelect,bodySelect,transSelect,fuelSelect]
+    .forEach(function(select){
+      select.addEventListener('change',function(){
+        if(select===makeSelect)updateModelOptions();
+        renderWithFade(getFilteredVehicles());
+      });
+    });
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
