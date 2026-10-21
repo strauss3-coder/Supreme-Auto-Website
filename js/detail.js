@@ -1,7 +1,11 @@
-/* ========== vehicle detail preview: renders the selected vehicle ==========
-   Exposes window.renderVehicleDetail(vehicle), called by inventory.js
-   when a "View Details" card link is clicked. Shows the featured (or
-   first) vehicle by default so the section is never empty. Renders a
+/* ========== vehicle detail preview: the featured car on the homepage ==========
+   Exposes window.renderVehicleDetail(vehicle) and shows the featured (or
+   first) vehicle on load, so the section is never empty.
+
+   This used to be where a "View Details" click landed. Each car now has its
+   own page at vehicle.html?id=..., so cards navigate there instead and this
+   section is a showcase rather than a destination. The function is still
+   exported because it is the only thing that writes to the panel. Renders a
    thumbnail per photo in vehicle.images -- clicking one swaps the main
    image, same gallery interaction the static mockup used to have, but
    now driven by each vehicle's real photo set instead of a fixed list.

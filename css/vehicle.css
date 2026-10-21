@@ -1,0 +1,191 @@
+/* ===========================================================================
+   vehicle.html only
+   ---------------------------------------------------------------------------
+   Everything shared with the rest of the site (colours, type, buttons, the
+   nav, the footer, .wrap, .media, .eyebrow) comes from style.css. This file
+   holds just the listing layout, so a change here cannot reach the homepage.
+
+   The layout is one grid: gallery and the price panel side by side above the
+   fold on a desktop, stacked on a phone with the price immediately under the
+   photographs, because that is the order a buyer reads in.
+   =========================================================================== */
+
+.vp{ padding:112px 0 80px; }
+
+/* ---------- breadcrumbs --------------------------------------------------- */
+.vp-crumbs{
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+  font-size:13px; color:var(--faint); margin-bottom:22px;
+}
+.vp-crumbs a{ color:var(--muted); text-decoration:none; transition:color .25s var(--ease); }
+.vp-crumbs a:hover{ color:var(--gold); }
+.vp-crumbs span[aria-hidden]{ opacity:.45; }
+
+/* ---------- loading and the gone state ------------------------------------ */
+.vp-state{ text-align:center; padding:72px 20px; max-width:560px; margin:0 auto; }
+.vp-state h1{ font-family:var(--display); font-size:clamp(26px,4vw,38px); margin-bottom:12px; letter-spacing:-.02em; }
+.vp-state p{ color:var(--muted); line-height:1.75; }
+.vp-state-acts{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+.vp-spin{
+  width:34px; height:34px; margin:0 auto 18px; border-radius:50%;
+  border:2px solid var(--border-2); border-top-color:var(--gold);
+  animation:vp-spin .8s linear infinite;
+}
+@keyframes vp-spin{ to{ transform:rotate(360deg) } }
+
+/* ---------- the grid ------------------------------------------------------ */
+.vp-main{
+  display:grid; gap:34px 40px;
+  grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);
+  grid-template-areas:'gallery side' 'detail side';
+  align-items:start;
+}
+.vp-gallery{ grid-area:gallery; min-width:0; }
+.vp-side{ grid-area:side; position:sticky; top:96px; }
+.vp-detail{ grid-area:detail; min-width:0; }
+
+/* ---------- gallery ------------------------------------------------------- */
+.vp-hero{
+  position:relative; aspect-ratio:3/2; border-radius:var(--r);
+  overflow:hidden; background:var(--bg-2); border:1px solid var(--border);
+}
+.vp-hero img{ width:100%; height:100%; object-fit:cover; display:block; }
+.vp-hero .ph{
+  position:absolute; inset:0; display:grid; place-items:center;
+  color:var(--faint); font-size:14px; letter-spacing:.04em;
+}
+.vp-badge{
+  position:absolute; top:14px; left:14px; z-index:2;
+  padding:7px 14px; border-radius:999px; font-size:12px; font-weight:650;
+  background:var(--gold); color:var(--gold-ink);
+}
+.vp-count{
+  position:absolute; right:14px; bottom:14px; z-index:2;
+  padding:5px 11px; border-radius:999px; font-size:12px;
+  background:rgba(0,0,0,.55); color:#fff; backdrop-filter:blur(6px);
+}
+.vp-arrow{
+  position:absolute; top:50%; transform:translateY(-50%); z-index:2;
+  width:42px; height:42px; border-radius:50%; cursor:pointer;
+  display:grid; place-items:center; font-size:26px; line-height:1;
+  color:#fff; background:rgba(0,0,0,.42); border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(8px);
+  transition:background .25s var(--ease), transform .25s var(--ease);
+}
+.vp-arrow:hover{ background:rgba(0,0,0,.72); }
+.vp-arrow.prev{ left:12px } .vp-arrow.next{ right:12px }
+.vp-arrow:focus-visible{ outline:2px solid var(--gold); outline-offset:2px }
+
+.vp-thumbs{
+  display:grid; gap:8px; margin-top:10px;
+  grid-template-columns:repeat(auto-fill,minmax(86px,1fr));
+}
+.vp-thumb{
+  padding:0; border:1px solid var(--border); border-radius:10px; overflow:hidden;
+  background:var(--bg-2); cursor:pointer; aspect-ratio:3/2;
+  transition:border-color .25s var(--ease), opacity .25s var(--ease);
+  opacity:.62;
+}
+.vp-thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
+.vp-thumb:hover{ opacity:.9 }
+.vp-thumb.active{ opacity:1; border-color:var(--gold); }
+.vp-thumb:focus-visible{ outline:2px solid var(--gold); outline-offset:2px }
+
+/* ---------- price panel ---------------------------------------------------- */
+.vp-side h1{
+  font-family:var(--display); font-size:clamp(25px,3.2vw,36px);
+  line-height:1.12; letter-spacing:-.025em; margin:6px 0 0;
+}
+.vp-headline{ color:var(--muted); font-size:14.5px; line-height:1.65; margin-top:10px; }
+
+.vp-price{ margin:22px 0 4px; }
+.vp-was{
+  display:block; font-size:15px; color:var(--faint);
+  text-decoration:line-through; margin-bottom:2px;
+}
+.vp-now{
+  font-family:var(--display); font-size:clamp(30px,4.4vw,42px);
+  font-weight:700; letter-spacing:-.03em; color:var(--gold);
+}
+.vp-pm{ display:block; font-size:13px; color:var(--muted); margin-top:6px; }
+
+.vp-quick{
+  list-style:none; display:grid; gap:10px; margin:22px 0 0;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.vp-quick li{
+  background:var(--surface); border:1px solid var(--border);
+  border-radius:var(--r-sm); padding:12px 14px;
+}
+.vp-quick b{ display:block; font-size:16px; font-weight:650; }
+.vp-quick span{ display:block; font-size:11.5px; color:var(--faint); margin-top:2px; letter-spacing:.03em; }
+
+.vp-acts{ display:grid; gap:10px; margin-top:22px; }
+.vp-acts .btn{ width:100%; justify-content:center; }
+
+/* ---------- detail blocks --------------------------------------------------- */
+.vp-block{ margin-top:38px; }
+.vp-block h2{
+  font-family:var(--display); font-size:19px; letter-spacing:-.015em;
+  margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border);
+}
+.vp-block p{ color:var(--muted); line-height:1.8; font-size:14.5px; white-space:pre-wrap; }
+
+.vp-features{
+  list-style:none; display:grid; gap:9px 20px;
+  grid-template-columns:repeat(auto-fill,minmax(210px,1fr));
+}
+.vp-features li{
+  position:relative; padding-left:24px; font-size:14px; color:var(--text);
+}
+.vp-features li::before{
+  content:''; position:absolute; left:0; top:6px;
+  width:13px; height:7px; border-left:2px solid var(--gold);
+  border-bottom:2px solid var(--gold); transform:rotate(-45deg);
+}
+
+/* Two columns of rows. The column gap is not decoration: without it the
+   right hand value of one pair sits flush against the left hand label of
+   the next, and "Volkswagen" "Model" reads as a single phrase. */
+.vp-specs{
+  display:grid; row-gap:0; column-gap:44px;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+}
+.vp-specs > div{
+  display:flex; justify-content:space-between; gap:16px;
+  padding:11px 2px; border-bottom:1px solid var(--border);
+}
+.vp-specs dt{ color:var(--faint); font-size:13.5px; }
+.vp-specs dd{ font-size:13.5px; font-weight:600; text-align:right; }
+
+.vp-extra > div + div{ margin-top:18px; }
+.vp-extra h3{ font-size:13.5px; font-weight:650; margin-bottom:5px; }
+.vp-extra p{ font-size:14px; }
+
+.vp-disclaimer{
+  margin-top:40px; padding-top:18px; border-top:1px solid var(--border);
+  font-size:12px; color:var(--faint); line-height:1.7;
+}
+
+/* ---------- responsive ------------------------------------------------------ */
+@media (max-width:980px){
+  .vp-main{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:'gallery' 'side' 'detail';
+  }
+  /* Sticky is worth having on a desktop, where the price stays beside the
+     photographs while you scroll. On a phone it would pin the panel over
+     the specification, which is the opposite of helpful. */
+  .vp-side{ position:static; }
+}
+@media (max-width:620px){
+  .vp{ padding:92px 0 60px; }
+  .vp-thumbs{ grid-template-columns:repeat(auto-fill,minmax(68px,1fr)); }
+  .vp-quick{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .vp-specs{ grid-template-columns:minmax(0,1fr); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .vp-spin{ animation:none; border-top-color:var(--border-2); }
+  .vp-arrow, .vp-thumb{ transition:none; }
+}

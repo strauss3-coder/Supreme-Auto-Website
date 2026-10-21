@@ -93,31 +93,54 @@
       var m=String(row.power).match(/\d+(\.\d+)?/);
       if(m)powerNum=Number(m[0]);
     }
+    /* The view no longer publishes sold stock, so the only badges a visitor
+       can see are Reserved and Featured. row.sold is kept in the shape for
+       any caller that still reads it, and is always false here. */
     var tag='';
-    if(row.sold)tag='Sold';
-    else if(row.reserved)tag='Reserved';
+    if(row.reserved)tag='Reserved';
     else if(row.featured)tag='Featured';
+
+    /* One rule for which price is shown, matching the portal exactly: an
+       offer only counts when it undercuts the asking price, and a previous
+       price only when it is genuinely higher than what is being charged. */
+    var ask=Number(row.price)||0;
+    var offer=Number(row.offer_price)||0;
+    var prev=Number(row.previous_price)||0;
+    var nowPrice=(offer>0&&offer<ask)?offer:ask;
+    var wasPrice=(offer>0&&offer<ask)?ask:((prev>nowPrice&&nowPrice>0)?prev:0);
 
     return {
       id:row.id,
       make:brand,
       model:model,
+      variant:row.variant||'',
+      headline:row.headline||'',
       year:row.year,
       mileage:row.mileage,
-      price:Number(row.price)||0,
+      price:nowPrice,
+      wasPrice:wasPrice,
+      askingPrice:ask,
+      isOffer:(offer>0&&offer<ask),
       fuelType:row.fuel||'',
       transmission:row.transmission||'',
       bodyType:row.body||'',
       engineSize:row.engine||'',
       power:powerNum,
+      drivetrain:row.drivetrain||'',
+      doors:row.doors||null,
+      seats:row.seats||null,
       images:Array.isArray(row.images)?row.images:[],
       financePerMonth:Number(row.installment)||0,
       financeIsEstimate:true,
       stockNumber:row.stock||null,
       description:row.description||'',
+      serviceHistory:row.service_history||'',
+      warranty:row.warranty||'',
+      financeNote:row.finance_note||'',
+      notes:row.notes||'',
       featured:!!row.featured,
       tag:tag,
-      sold:!!row.sold,
+      sold:false,
       reserved:!!row.reserved,
       condition:row.condition||'',
       colour:row.colour||'',
@@ -138,14 +161,28 @@
     url:SUPABASE_URL,
 
     /* website_vehicles is a database view that already excludes archived
-       stock and sorts featured first, so the filter rules live in one
-       place instead of being repeated in the website. */
+       stock, drafts and sold cars, and sorts featured first, so those rules
+       live in one place instead of being repeated in the website. A sold
+       vehicle is not filtered out here; it never arrives. */
     vehicles:function(){
       return once('vehicles',function(){
         return get('website_vehicles?select=*','vehicles').then(function(rows){
           return (rows||[]).map(toSiteVehicle);
         });
       });
+    },
+
+    /* One vehicle, for vehicle.html. It asks the database directly rather
+       than downloading the whole inventory, so a shared link opens on one
+       small request. A car that has been sold or withdrawn is simply not in
+       the view, which is what lets the page show a proper "no longer
+       available" state instead of a blank one. */
+    vehicle:function(id){
+      if(!id)return Promise.resolve(null);
+      return get('website_vehicles?select=*&id=eq.'+encodeURIComponent(id),'vehicle_'+id)
+        .then(function(rows){
+          return (rows&&rows[0])?toSiteVehicle(rows[0],0):null;
+        });
     },
 
     testimonials:function(){

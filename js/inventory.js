@@ -15,6 +15,8 @@
   var bodySelect=document.getElementById('filterBody');
   var transSelect=document.getElementById('filterTransmission');
   var fuelSelect=document.getElementById('filterFuel');
+  var mileageSelect=document.getElementById('filterMileage');
+  var sortSelect=document.getElementById('filterSort');
   var clearBtns=document.querySelectorAll('[data-clear-filters]');
 
   var PRICE_BUCKETS={
@@ -22,6 +24,28 @@
     'R200k–R350k':[200000,350000],
     'R350k–R500k':[350000,500000]
   };
+
+  var MILEAGE_CAPS={
+    'Under 50 000 km':50000,
+    'Under 100 000 km':100000,
+    'Under 150 000 km':150000,
+    'Under 200 000 km':200000
+  };
+
+  /* Featured first is the order the database view already returns, so it is
+     the default and costs nothing. The rest sort a copy, never ALL_VEHICLES
+     itself, otherwise clearing the filters would hand back a list in
+     whatever order was last chosen. */
+  var SORTS={
+    'Price: low to high':function(a,b){return priceOf(a)-priceOf(b);},
+    'Price: high to low':function(a,b){return priceOf(b)-priceOf(a);},
+    'Mileage: lowest first':function(a,b){return (a.mileage==null?Infinity:a.mileage)-(b.mileage==null?Infinity:b.mileage);},
+    'Year: newest first':function(a,b){return (b.year||0)-(a.year||0);},
+    'Recently added':function(a,b){return (a.sortOrder||0)-(b.sortOrder||0);}
+  };
+  /* A car with no price sorts last whichever direction is chosen, rather
+     than leading the "cheapest first" list at R0. */
+  function priceOf(v){ return v.price==null||!v.price?Infinity:v.price; }
 
   var ICONS={
     calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>',
@@ -144,7 +168,7 @@
             '<div>'+ICONS.fuel+fuelEngine+'</div>'+
           '</div>'+
           '<div class="car-price"><span class="p">'+formatPrice(v.price)+'</span></div>'+
-          '<a href="#detail" class="btn btn-ghost" data-vehicle-id="'+v.id+'">View Details</a>'+
+          '<a href="vehicle.html?id='+encodeURIComponent(v.id)+'" class="btn btn-ghost" data-vehicle-id="'+v.id+'">View Details</a>'+
         '</div>'+
       '</article>'
     );
@@ -199,9 +223,17 @@
     return price>=range[0]&&price<=range[1];
   }
 
+  function matchesMileage(km,label){
+    if(!label||label.indexOf('Any')===0)return true;
+    if(km==null)return false;          /* unknown mileage is not "under" anything */
+    var cap=MILEAGE_CAPS[label];
+    return cap?km<=cap:true;
+  }
+
   function getFilteredVehicles(){
     var make=makeSelect.value,model=modelSelect.value,price=priceSelect.value,
-      year=yearSelect.value,body=bodySelect.value,trans=transSelect.value,fuel=fuelSelect.value;
+      year=yearSelect.value,body=bodySelect.value,trans=transSelect.value,fuel=fuelSelect.value,
+      mileage=mileageSelect?mileageSelect.value:'';
 
     return ALL_VEHICLES.filter(function(v){
       if(make.indexOf('Any')!==0&&v.make!==make)return false;
@@ -211,12 +243,20 @@
       if(body.indexOf('Any')!==0&&v.bodyType!==body)return false;
       if(trans.indexOf('Any')!==0&&v.transmission!==trans)return false;
       if(fuel.indexOf('Any')!==0&&v.fuelType!==fuel)return false;
+      if(!matchesMileage(v.mileage,mileage))return false;
       return true;
     });
   }
 
+  function sortVehicles(list){
+    var how=sortSelect?sortSelect.value:'';
+    var fn=SORTS[how];
+    return fn?list.slice().sort(fn):list;
+  }
+
   function clearFilters(){
-    [makeSelect,priceSelect,yearSelect,bodySelect,transSelect,fuelSelect].forEach(function(s){
+    [makeSelect,priceSelect,yearSelect,bodySelect,transSelect,fuelSelect,
+     mileageSelect,sortSelect].filter(Boolean).forEach(function(s){
       s.selectedIndex=0;
     });
     updateModelOptions();
@@ -231,45 +271,35 @@
      Search was pressed, so choosing a make and seeing the same fourteen cars
      read as a broken filter bar. Search still submits, for anyone who reaches
      for it out of habit and for keyboard users pressing Enter in the form. */
-  [makeSelect,modelSelect,priceSelect,yearSelect,bodySelect,transSelect,fuelSelect]
+  [makeSelect,modelSelect,priceSelect,yearSelect,bodySelect,transSelect,fuelSelect,
+   mileageSelect,sortSelect]
+    .filter(Boolean)
     .forEach(function(select){
       select.addEventListener('change',function(){
         if(select===makeSelect)updateModelOptions();
-        renderWithFade(getFilteredVehicles());
+        renderWithFade(sortVehicles(getFilteredVehicles()));
       });
     });
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    renderWithFade(getFilteredVehicles());
+    renderWithFade(sortVehicles(getFilteredVehicles()));
   });
 
   clearBtns.forEach(function(btn){
     btn.addEventListener('click',clearFilters);
   });
 
-  /* event delegation on the grid container -- survives re-renders from
-     filtering, since the listener lives on the static parent, not on
-     the dynamically-replaced cards themselves */
-  grid.addEventListener('click',function(e){
-    var link=e.target.closest('[data-vehicle-id]');
-    if(!link)return;
-    /* Compare as strings. vehicles.json used numeric ids, so Number() was
-       correct then. The portal generates text ids ("v_site_1"), and
-       Number("v_site_1") is NaN -- which is never strictly equal to
-       anything, including itself. The filter therefore matched nothing,
-       the guard below returned early, and renderVehicleDetail() was never
-       called, so the detail panel kept showing whatever it loaded with.
-       String() handles both id styles. */
-    var wanted=String(link.getAttribute('data-vehicle-id'));
-    var vehicle=ALL_VEHICLES.filter(function(v){
-      return String(v.id)===wanted;
-    })[0];
-    if(!vehicle||!window.renderVehicleDetail)return;
-    var media=link.closest('.car').querySelector('.car-media');
-    var startIndex=media?Number(media.getAttribute('data-idx'))||0:0;
-    window.renderVehicleDetail(vehicle,startIndex);
-  });
+  /* "View Details" used to render the car into the #detail panel further
+     down this page. Every card now links to vehicle.html?id=..., which is a
+     real address a buyer can bookmark, share on WhatsApp or find in Google,
+     so the click no longer needs intercepting: the browser navigates and
+     that page builds itself from the id.
+
+     The #detail section below stays as it was, showing the featured vehicle
+     as a preview of what a listing looks like. detail.js still fills it on
+     load, and vehicle-whatsapp.js still reads it through getCurrentVehicle. */
+
 
   /* ---------- card carousel: nav arrows + dots + swipe ----------
      One delegated listener set, same pattern as the View Details
